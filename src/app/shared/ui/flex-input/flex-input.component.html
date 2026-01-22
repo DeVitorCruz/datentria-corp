@@ -1,0 +1,18 @@
+@switch(INPUT().matInput) {
+    @case ('matInput') {
+        <mat-form-field>        
+            @if(INPUT().label) {
+                <mat-label>{{ INPUT().label }}</mat-label>
+            }
+            <input class="ui-input-flex" [ngClass]="INPUT().customClassName" appDynamicAttributes [FLEX_INPUT_ITEM]="INPUT()" matInput>
+        </mat-form-field>
+    }
+
+    @default {
+        @if(INPUT().label) {
+            <label>{{ INPUT().label }}</label>
+        }
+        <input class="ui-input-flex" [ngClass]="INPUT().customClassName" appDynamicAttributes [FLEX_INPUT_ITEM]="INPUT()"> 
+    }
+}
+

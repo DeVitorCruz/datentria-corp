@@ -1,0 +1,11 @@
+<form class="ui-flex-form">
+    @if (FORM().flexInputItem) {
+        <app-flex-input
+            [INPUT_ITEM]="FORM().flexInputItem!"></app-flex-input>
+    }
+
+    @if (FORM().flexButtonItem) {
+        <app-button-flex
+            [BUTTON_ITEM]="FORM().flexButtonItem!"></app-button-flex>
+    }
+</form>
