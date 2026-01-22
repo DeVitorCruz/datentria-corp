@@ -1,0 +1,54 @@
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../styles-collections/mixin/typography/font-scales' as *;
+
+@use './button-form-flex' as *;
+@use './input-form-flex' as *;
+
+@use '../../../styles-collections/breakpoints' as *;
+@use '../variables' as var;
+
+@mixin search-footer-column-all-features() {
+    .text-box-block__search-text-box-3 {
+        @include box-internal-space($top: 0px, $right: 15px, $bottom: 0px, $left: 15px);
+        @include box-external-space($top: 0, $right: 0, $bottom: 70px, $left: 0);   
+
+        .ui-flex-heading {
+            @include box-external-space($top: 0px, $right: 0px, $bottom: 35px, $left: 0px);
+            @include font-collect(var.$font-family-cinzel, 700, 23px);
+            @include text-format($text-transform: uppercase, $text-align: left);
+        }
+
+        .ui-text {
+            @include box-external-space($top: 0, $right: 0, $bottom: 15px, $left: 0);
+        }
+
+        .ui-flex-form {
+            @include box-external-space($top: 30px, $right: 0, $bottom: 0px, $left: 0);
+            @include dimension($width: 100%, $height: auto);
+            @include position-features($position: relative);
+            @include display-features($display: flex, $justify-content: left, $flex-direction: row, $align-items: center, $align-content: center);
+
+            app-flex-input {
+                @include flex-position-features(0 0 80%);
+            }
+
+            app-button-flex {
+                @include flex-position-features(0 0 20%);
+            }
+
+            .ui-input-flex {
+                @include input-form-flex-all-features();
+            }
+
+            .ui-btn-flex {
+                @include button-form-flex-all-features();
+            }
+        }
+
+        @include respond(lg) {
+            @include box-internal-space($top: 140px, $right: 15px, $bottom: 140px, $left: 15px);
+            @include box-external-space($top: 0, $right: 0, $bottom: 0px, $left: 0);
+        }
+    }
+}

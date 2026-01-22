@@ -1,0 +1,38 @@
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../styles-collections/mixin/typography/font-scales' as *;
+
+@use '../variables' as var;
+
+@mixin upper-body-footer-column-all-features() {
+    .text-box-block__body-logo-column-0 {
+        .ui-text {
+            @include box-external-space($top: 0, $right: 0, $bottom: .8rem, $left: 0);
+            @include font-dimension($font-size: unset, $font-weight: unset, $line-height: 1.9em);
+            @include box-internal-space($top: 12px, $right: 0px, $bottom: 0px, $left: 0px);
+        }
+    
+        .link-list-block {
+            @include box-external-space($top: 25px, $right: 0, $bottom: 0, $left: 0);
+            @include display-features($display: flex, $justify-content: left, $flex-direction: row, $align-items: center);
+            @include box-internal-space($top: 16px, $right: 0px, $bottom: 0px, $left: 0px);
+    
+            .ui-link-e {
+                @include text-format($text-transform: unset, $text-align: center);
+                @include display-features($display: block, $justify-content: center, $flex-direction: unset, $align-items: center, $align-content: center);
+                @include font-dimension($font-size: 16px, $font-weight: unset, $line-height: 1.9em);
+                @include content-color(var.$tertiary-color);
+                @include dimension($width: 48px, $height: 48px);
+                @include box-external-space($top: 0px, $right: 8px, $bottom: 0px, $left: 0px);
+                @include transition-features($transition: all .3s ease-in-out);
+                @include border-decoration-radius($border-radius: 100px);
+    
+                &:hover {
+                    @include content-color(var.$white-color);
+                    @include text-color(var.$secondary-color);
+                }
+            }
+        }
+    }
+}

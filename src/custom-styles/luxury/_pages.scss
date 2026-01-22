@@ -1,0 +1,5 @@
+@use './home' as *;
+
+@mixin all-page-collected() {
+    @include home-all-features();
+}

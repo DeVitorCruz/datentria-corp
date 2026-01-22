@@ -1,0 +1,12 @@
+@use '../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../styles-collections/mixin/color/color-mixin' as *;
+
+@mixin ui-menu-panel($top: 110%, $background-color: #fff) {
+    @include position-features(absolute);
+    @include direction-position($top, auto, auto, auto);
+    @include dimension(225px, auto);
+    @include box-internal-space(20px, 0px, 20px, 0px);
+    @include box-decoration-shadow();
+    @include content-color($background-color);
+}

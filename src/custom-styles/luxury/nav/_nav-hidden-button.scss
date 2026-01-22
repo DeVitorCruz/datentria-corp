@@ -1,0 +1,23 @@
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+
+@use '../../../styles-collections/breakpoints' as *;
+@use '../variables' as var;
+
+@mixin nav-hidden-button-all-features() {
+    .nav-block__nav-hidden-button {
+        
+        .ui-btn-flex {
+            @include text-color(var.$white-color);
+            @include content-color(var.$secondary-color);
+            @include box-internal-space(5px, 10px, 5px, 10px);
+            @include dimension(40px, 35px);
+            @include border-decoration-radius(.25rem);
+        }
+
+        @include respond('lg') {
+            @include display-features(none);
+        }
+    }
+}

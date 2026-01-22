@@ -1,0 +1,47 @@
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../styles-collections/mixin/typography/font-scales' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/variables' as *;
+
+@use '../../../styles-collections/breakpoints' as *;
+@use '../variables' as var;
+
+@mixin link-list-options-all-features() {
+    .ui-option-list-block__primary-link-list, .ui-option-list-block__secondary-link-list {
+        @include box-internal-space($top: 0px, $right: 15px, $bottom: 0px, $left: 15px);
+        @include box-external-space($top: 0, $right: 0, $bottom: 70px, $left: 0);
+
+        .ui-flex-heading {
+            @include box-external-space($top: 0px, $right: 0px, $bottom: 35px, $left: 0px);
+            @include font-collect(var.$font-family-cinzel, 700, 23px);
+            @include text-format($text-transform: uppercase, $text-align: left);
+        }
+
+        .ui-list-custom {
+            @include display-features($display: flex, $justify-content: unset, $flex-direction: column, $align-items: start, $align-content: center);
+
+            .ui-list-custom__list-item {
+                .ui-link-e {
+                    @include transition-features(all 0.2s ease-in-out);
+                    @include display-features($display: inline, $justify-content: unset, $flex-direction: unset, $align-items: unset, $align-content: unset);
+
+                    &:first-child {
+                        @include box-internal-space($top: 0px, $right: 0px, $bottom: 0px, $left: 0px);
+                    }
+
+                    &:hover {
+                        @include text-color(var.$tertiary-color);
+                    }
+                }
+
+                @include box-internal-space($top: 15px, $right: 0px, $bottom: 0px, $left: 0px);
+            }
+        }
+
+        @include respond(lg) {
+            @include box-internal-space($top: 140px, $right: 15px, $bottom: 140px, $left: 15px);
+            @include box-external-space($top: 0, $right: 0, $bottom: 0px, $left: 0);
+        }
+    }
+}

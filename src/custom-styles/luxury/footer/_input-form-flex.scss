@@ -1,0 +1,14 @@
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../../styles-collections/mixin/typography/font-scales' as *;
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+
+@use '../variables' as var;
+
+@mixin input-form-flex-all-features() {
+    @include dimension($width: 100%, $height: 58px);
+    @include box-internal-space($top: 0px, $right: 70px, $bottom: 0px, $left: 20px);
+    @include font-collect(var.$font-family-sans, var.$font-weight-regular, 16px);
+    @include text-color(var.$primary-color);
+    @include content-color(var.$white-color);
+}

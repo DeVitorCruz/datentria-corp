@@ -1,0 +1,45 @@
+
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/typography/font-scales' as *;
+@use '../../../styles-collections/mixin/scroll-fix' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+
+@use '../variables' as var;
+@use '../../../styles-collections/breakpoints' as *;
+
+@use './nav-log-section' as *;
+@use './nav-hidden-button' as *;
+@use './nav-list' as *;
+@use './side-bar-button' as *;
+
+@mixin nav-block-all-features() {
+    app-nav-bar:has(.nav-block) {
+        .nav-block {
+    
+            @include position-features();
+            @include out-direction-move($z-index: 10);
+    
+            &__first-layer {
+                @include display-features(flex);
+                @include font-dimension(16px, var.$font-weight-middle);
+    
+                .nav-block__logo, .nav-block__nav-sidebar-button, .nav-block__nav-hidden-button {
+                    @include display-features(flex, center, column);
+                }
+    
+                @include nav-log-section-all-features();
+                @include nav-hidden-button-all-features();
+                @include nav-list-all-features();
+                @include side-bar-button-all-features();
+    
+                @include respond('xl') {
+                    @include font-dimension(17px);
+                }
+            }
+        }
+    }
+
+    .scroll-bar-features {
+        @include scroll-fix-all-features($position-scroll: fixed, $background-color: var.$fifth-color);
+    }
+}

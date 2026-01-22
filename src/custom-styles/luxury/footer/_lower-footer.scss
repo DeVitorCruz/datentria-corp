@@ -1,0 +1,18 @@
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+
+@use '../variables' as var;
+
+@mixin lower-all-features() {
+    .ui-sequence-block__lower-footer {
+        @include display-features($display: flex, $justify-content: center, $flex-direction: row, $align-items: center);
+        @include content-color(var.$seventh-color);
+        @include box-internal-space($top: 20px, $right: 0px, $bottom: 20px, $left: 0px);
+
+        .item-space-1 {
+            @include box-internal-space($top: 0px, $right: 4px, $bottom: 0px, $left: 4px);
+            @include text-color(var.$tertiary-color);
+        }
+    }
+}

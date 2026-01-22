@@ -1,0 +1,22 @@
+@use '../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../styles-collections/mixin/base/base-mixin' as *;
+
+@mixin intern-visibility-hover-sequence($index: 0, $parentClassName: '', $childClassName: '') {
+    .#{$parentClassName} {
+        .#{$childClassName} {
+            @include enable-fade-picture(0, hidden);
+            @include transition-features(all .3s);
+
+            @if ($index > 0) {
+                @include intern-visibility-hover-sequence($index - 1, $parentClassName, $childClassName);
+            }
+        }
+
+        &:hover {
+            .#{$childClassName} {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

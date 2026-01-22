@@ -1,0 +1,31 @@
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+
+@use '../../../styles-collections/breakpoints' as *;
+@use '../variables' as var;
+
+@use './lower-footer' as *;
+@use './upper-footer' as *;
+
+
+@mixin footer-all-features() {
+    .ui-sequence-block__footer-childs {
+        @include content-color(var.$secondary-color);
+        @include text-color(var.$white-color);
+        @include box-internal-space($top: 90px, $right: 0px, $bottom: 0px, $left: 0px);
+        @include position-features($position: relative);
+
+        .item-space-0 {
+            @include Upper-all-features();
+        }
+        
+        .item-space-1 {
+            @include lower-all-features();
+        }
+
+        @include respond(lg) {
+            @include box-internal-space($top: 0px, $right: 0px, $bottom: 0px, $left: 0px);
+        }
+    }
+}

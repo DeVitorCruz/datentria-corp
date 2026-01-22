@@ -1,0 +1,20 @@
+@mixin enable-fade-picture($opacity: 0,$visibility: hidden) {
+    opacity: $opacity;
+    visibility: $visibility;
+}
+
+@mixin text-color($color: black) {
+    color: $color;
+}
+
+@mixin border-decoration-color($border-color: black) {
+    border-color: $border-color;
+}
+
+@mixin box-decoration-shadow($box-shadow: 0px 2px 20px 0px  rgba(62, 65, 159, 0.09)) {
+    box-shadow: $box-shadow;
+}
+
+@mixin content-color($background-color: black) {
+    background: $background-color;
+}

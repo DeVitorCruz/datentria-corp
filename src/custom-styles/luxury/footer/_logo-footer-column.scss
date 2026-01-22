@@ -1,0 +1,55 @@
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../../styles-collections/mixin/base/base-mixin' as *;
+
+@use '../../../styles-collections/breakpoints' as *;
+@use '../variables' as var;
+
+@use './upper-body-footer-column' as *;
+
+@mixin logo-footer-column-all-features() {
+    .ui-sequence-block__logo-column {
+        @include box-internal-space($top: 0px, $right: 15px, $bottom: 0px, $left: 15px);
+        @include box-external-space($top: 0, $right: 0, $bottom: 70px, $left: 0);
+        
+        &::before {
+            @include position-features(absolute);
+            @include direction-position($top: 0%, $right: unset, $bottom: unset, $left: 0);
+            @include dimension($width: 20%, $height: 90%);
+            @include content-color($background-color: var.$eighth-color);
+            @include out-direction-move($z-index: 0);
+
+            @include respond(lg) {
+                content: '';
+            }
+        }
+
+        .item-space-0, .item-space-1 {
+            @include out-direction-move($z-index: 2);
+        }
+
+        .item-space-0 {
+            @include box-external-space($top: 0, $right: 0, $bottom: 35px, $left: 0);
+            @include position-features(sticky);
+
+            img {
+                @include max-dimension($max-width: 180px, $max-height: unset);
+            }
+        }
+
+        .item-space-1 { 
+            @include upper-body-footer-column-all-features();
+            @include position-features(sticky);
+        }
+
+        @include respond(md) {
+            @include content-color(var.$secondary-color);
+        }
+
+        @include respond(lg) {
+            @include box-internal-space($top: 140px, $right: 15px, $bottom: 140px, $left: 15px);
+            @include box-external-space($top: 0, $right: 0, $bottom: 0px, $left: 0);
+            @include content-color(var.$eighth-color);
+        }
+    }
+}

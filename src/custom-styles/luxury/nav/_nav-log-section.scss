@@ -1,0 +1,12 @@
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
+
+@mixin nav-log-section-all-features() {
+    .nav-block__logo {
+        .ui-link-e {
+            .ui-image-flex {
+                @include max-dimension(170px, none);
+                @include box-internal-space(0, .7rem, 0, .7rem);
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+@use '../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../styles-collections/mixin/density/density-mixin' as *;
+
+@mixin intern-accordion-sequence($index: 0, $parentClassName: '', $childClassName: '') {
+    .#{$parentClassName} {
+        @include display-features($display: block, $justify-content: space-between, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
+        @include dimension($width: 100%, $height: 100%);
+
+        app-button-flex:has(.ui-btn-flex) {
+            @include display-features($display: block, $justify-content: space-between, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
+            @include dimension($width: 100%, $height: 100%);
+
+            .ui-btn-flex {
+                @include display-features($display: flex, $justify-content: space-between, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
+                @include dimension($width: 100%, $height: 100%);
+
+                app-icon-flex:has(.ng-fa-icon) {
+                    @include display-features($display: block, $justify-content: space-between, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
+                    @include change-position($transform: rotate(0deg));
+                    @include transition-features($transition: all .3s ease-out);
+                }
+            }
+        }
+
+        app-custom-list:has(.#{$childClassName}) {
+            display: grid;
+            grid-template-rows: 0fr;
+            grid-template-columns: 1fr;
+            overflow: hidden;
+
+            .#{$childClassName} {
+                min-height: 0;
+
+                @if ($index > 0) {
+                    @include intern-accordion-sequence($index - 1, $parentClassName, $childClassName);
+                }
+            }
+        }
+
+        &.is-expanded {
+            app-custom-list:has(.#{$childClassName}) {
+                grid-template-rows: 1fr;
+            }
+
+            app-button-flex {
+                .ui-btn-flex {
+                    app-icon-flex:has(.ng-fa-icon) {
+                        @include change-position($transform: rotate(90deg));
+                    }
+                }
+            }
+        }
+    }
+}

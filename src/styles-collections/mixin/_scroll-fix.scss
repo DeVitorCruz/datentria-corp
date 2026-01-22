@@ -1,0 +1,26 @@
+@use '../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../styles-collections/mixin/color/color-mixin' as *;
+
+
+@mixin scroll-fix-all-features($position-scroll: fixed, $background-color: transparent) {
+    @include position-features($position: $position-scroll);
+    @include dimension($width: 100%, $height: auto);
+    @include direction-position($top: 0, $right: unset, $bottom: unset, $left: unset, );
+    @include animation-detail($animation-duration: 500ms, $animation-timing-function: ease-in-out, $animation-delay: 0s, $animation-direction: normal, $animation-fill-mode: none, $animation-iteration-count: 1, $animation-play-state: running, $animation-name: fadeInDown);
+    @include out-direction-move($z-index: 2);
+    @include content-color($background-color: $background-color);
+
+    @keyframes fadeInDown {
+
+        0% {
+            @include enable-fade-picture($opacity: 0, $visibility: visible);
+            @include change-position($transform: translateY(-20px));
+        }
+
+        100% {
+            @include enable-fade-picture($opacity: 1, $visibility: visible);
+            @include change-position($transform: translateY(0px));
+        }
+    }
+}
