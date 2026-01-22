@@ -9,7 +9,8 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/app/themes/luxury/layout/nav-bar/nav-list-items/sub-list-items/sub-list-items/anchor-items/ID_3_CHECKOUT.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"

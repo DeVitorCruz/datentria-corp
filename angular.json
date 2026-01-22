@@ -18,6 +18,12 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/material-features",
+                "src/custom-styles"
+              ]
+            },
             "polyfills": [
               "zone.js"
             ],
@@ -27,9 +33,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
+              "src/tailwind.css",
               "src/styles.scss"
             ],
             "server": "src/main.server.ts",
@@ -80,6 +88,12 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/material-features",
+                "src/custom-styles"
+              ]
+            },
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -90,14 +104,19 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/assets"
             ],
             "styles": [
+              "src/tailwind.css",
               "src/styles.scss"
             ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "31bf40c2-1c7e-4947-9402-0e3b6db68a30"
   }
 }
