@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@use '_main' as *; // Import custom styles here
+
+html, 
+body { height: 100%; }
+
+body.ecommerce-blog-jewelry-luxury {
+    overflow-x: hidden;
+@include get-theme-name('ecommerce-blog-jewelry-luxury');
+}
