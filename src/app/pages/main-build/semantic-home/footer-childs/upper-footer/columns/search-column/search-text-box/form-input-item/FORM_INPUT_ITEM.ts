@@ -1,5 +1,5 @@
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { FlexFormItem } from "../../../../../../../../../shared/ui/flex-form/flex-form-item.interface";
+import { faPaperPlane  } from "@fortawesome/free-solid-svg-icons";
+import { FlexFormItem  } from "../../../../../../../../../shared/ui/flex-form/flex-form-item.interface";
 import { FlexInputItem } from "../../../../../../../../../core/models/share-info/flex-input-item.interface";
 import { ButtonItem } from "../../../../../../../../../shared/ui/button/button-item.interface";
 import { IconSwitch } from "../../../../../../../../../shared/ui/icon-flex/icon-switch.type";
@@ -15,6 +15,7 @@ export const FORM_INPUT_ITEM: FlexFormItem = {
         type: 'email',
     } as FlexInputItem,
     flexButtonItem: {
+        id: 1,
         type: 'button',
         customClassName: TAILWIND_FLEX_BUTTON,
         iconType: {
@@ -22,4 +23,5 @@ export const FORM_INPUT_ITEM: FlexFormItem = {
             currentIcon: faPaperPlane,
         } as IconSwitch,
     } as ButtonItem,
+
 };
