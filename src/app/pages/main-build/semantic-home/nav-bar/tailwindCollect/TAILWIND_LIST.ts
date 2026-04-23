@@ -1,3 +1,3 @@
 export const TAILWIND_LIST: string[] = [
-    'flex',
+    'nav-list--flex',
 ];

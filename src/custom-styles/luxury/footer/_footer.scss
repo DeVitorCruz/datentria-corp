@@ -28,4 +28,25 @@
             @include box-internal-space($top: 0px, $right: 0px, $bottom: 0px, $left: 0px);
         }
     }
+    
+    .footer__upper--container, 
+    .footer__lower--container {
+		@include max-dimension($max-width: 1280px, $max-height: auto);
+		@include box-external-space($top: 0, $right: auto, $bottom: 0, $left: auto);
+		@include box-internal-space($top: 0, $right: 11.2px, $bottom: 0, $left: 11.2px);
+    }    
+    
+    .search-form__button {
+		@include display-features($display: flex, $align-items: center, $justify-content: center);
+		@include box-internal-space($top: 8px, $right: 16px, $bottom: 8px, $left: 16px);
+		@include transition-features();
+		@include view-ui-cursor($cursor: pointer);
+    }
+    
+    .search-form__input {
+		@include flex-position-features($flex: 1);
+		@include box-internal-space($top: 8px, $right: 16px, $bottom: 8px, $left: 16px);
+		@include content-color($background-color: transparent);	
+		&:focus { outline: none }
+    }
 }

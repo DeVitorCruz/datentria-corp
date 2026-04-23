@@ -58,4 +58,12 @@
             @include corner-right-image-all-features();
         }
     }
+    
+    .corner-image--visible {
+		@include display-features($display: none, $justify-content: null, $flex-direction: null, $align-items: null, $align-content: null, $flex-wrap: null);
+		
+		@include respond('2xl') {
+			@include display-features($display: block, $justify-content: null, $flex-direction: null, $align-items: null, $align-content: null, $flex-wrap: null);
+		}
+    }
 }

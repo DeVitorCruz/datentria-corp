@@ -3,6 +3,7 @@
 @use '../../../styles-collections/mixin/typography/font-scales' as *;
 @use '../../../styles-collections/mixin/scroll-fix' as *;
 @use '../../../styles-collections/mixin/color/color-mixin' as *;
+@use '../../../styles-collections/mixin/density/density-mixin' as *;
 
 @use '../variables' as var;
 @use '../../../styles-collections/breakpoints' as *;
@@ -37,6 +38,25 @@
                 }
             }
         }
+    }
+    
+    .nav-block__side-bar-button--clickable,
+    .nav-block__hidden-bar-button--clickable {
+		@include view-ui-cursor($cursor: pointer);
+    }
+    
+    .nav-list--flex {
+		@include display-features($display: flex);
+    }
+    
+    .nav-block__navigation--container {
+		@include max-dimension($max-width: 1280px, $max-height: auto);
+		@include box-external-space($top: 0, $right: auto, $bottom: 0, $left: auto);
+		@include box-internal-space($top: 20px, $right: 10px, $bottom: 20px, $left: 10px);
+		
+		@include respond('lg') {
+			@include box-internal-space($top: 0, $right: 10px, $bottom: 0, $left: 10px);
+		}
     }
 
     .scroll-bar-features {

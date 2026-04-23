@@ -1,10 +1,11 @@
 import { Routes } from "@angular/router";
-import { SemanticHome } from "../../pages/main-build/semantic-home/semantic-home.page";
+
 
 export const JEWELRY_LUXURY_THEME_ROUTE: Routes = [
     {
         path: '',
-        component: SemanticHome, 
+        loadComponent: () => import('../../pages/main-build/semantic-home/semantic-home.page')
+			.then(m => m.SemanticHome), 
         children: [
             {
                 path: '',

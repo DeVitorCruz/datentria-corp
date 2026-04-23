@@ -65,7 +65,6 @@
     animation: $animation-duration $animation-timing-function $animation-delay $animation-direction $animation-fill-mode $animation-iteration-count $animation-play-state $animation-name;
 }
 
-
 @mixin display-grid-features($grid-template-columns: auto auto auto, $grid-template-rows: none, $column-gap: unset, $row-gap: unset, $justify-content: unset, $align-content: unset) {
     display: grid;
     grid-template-columns: $grid-template-columns;
@@ -75,3 +74,4 @@
     justify-content: $justify-content;
     align-content: $align-content;
 }
+
