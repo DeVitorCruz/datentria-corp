@@ -1,6 +1,6 @@
 @use '../../variables' as var;
 
-@mixin font-collect($font-family, $font-weight, $font-size, $line-height: unset) {
+@mixin font-collect($font-family: null, $font-weight: null, $font-size: null, $line-height: null) {
     font-family: $font-family;
     @include font-dimension($font-size, $font-weight, $line-height);
 }
@@ -15,19 +15,20 @@
     line-height: 1.6;
 }
 
-@mixin font-fully-collection($font-family, $font-weight, $font-size, $line-scale) {
+@mixin font-fully-collection($font-family: null, $font-weight: null, $font-size: null, $line-scale: null) {
     @include font-collect($font-family, $font-weight, $font-size);
     line-height: $line-scale;
 }
 
-@mixin font-dimension($font-size: 15px, $font-weight: 400, $line-height: unset) {
+@mixin font-dimension($font-size: 15px, $font-weight: 400, $line-height: null) {
     font-size: $font-size;
     font-weight: $font-weight;
     line-height: $line-height;
 }
 
-@mixin text-format($text-transform: capitalize, $text-align: center, $letter-spacing: normal) {
+@mixin text-format($text-transform: capitalize, $text-align: center, $letter-spacing: normal, $text-decoration: null) {
     text-transform: $text-transform;
     text-align: $text-align;
     letter-spacing: $letter-spacing;
+    text-decoration: $text-decoration;
 }

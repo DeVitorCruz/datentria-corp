@@ -15,6 +15,11 @@
     box-shadow: $box-shadow;
 }
 
-@mixin content-color($background-color: black) {
+@mixin content-color($background-color: black, $background-image: null, $background-size: null, $background-position: null, $background-repeat: null, $opaticy: null, $visibility: null) {
     background: $background-color;
+    background-image: $background-image;
+    background-size: $background-size;
+    background-position: $background-position;
+    background-repeat: $background-repeat;
+    @include enable-fade-picture($opacity: $opaticy, $visibility: $visibility);
 }

@@ -14,14 +14,16 @@ import { StickyOnScroll } from '../../../core/directives/sticky-on-scroll/sticky
 import { MatSideLeftBarService } from '../../../core/services/side-bar/mat-side-left-bar.service';
 import { MatSideRightBarService } from '../../../core/services/side-bar/mat-side-right-bar.service';
 import { CLOSE_RIGHT_BUTTON } from './CLOSE_RIGHT_BUTTON';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { SemanticHomeNavBar } from './semantic-home-nav-bar.interface';
 import { ContainerBlock } from '../../../shared/ui/container/container-block.interface';
 import { SemanticSideBar } from './semantic-side-bar.interface';
+import { SemanticFeatures } from '../../../layouts/semantic/semantic-features.interface';
 import { NAV_BAR } from './NAV_BAR';
 import { FOOTER_CHILDS } from './FOOTER_CHILDS';
 import { RIGHT_SIDE_BAR } from './RIGHT_SIDE_BAR';
 import { LEFT_SIDE_BAR } from './LEFT_SIDE_BAR';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-semantic-home',
@@ -40,6 +42,17 @@ import { LEFT_SIDE_BAR } from './LEFT_SIDE_BAR';
 })
 export class SemanticHome implements AfterViewInit {
   public readonly PAGES = signal<Pages>({});
+  
+  /** Tracks the active page key from the URL (e.g. 'home', 'about', 'shop') */
+  public readonly ACTIVE_PAGE = signal<string>('home');
+  
+  /** Returns the current page config or falls back to 'home' */
+  public readonly CURRENT_PAGE = computed<SemanticFeatures>(() => {
+	 const PAGES = this.PAGES();
+	 const KEY = this.ACTIVE_PAGE(); 
+	 return PAGES[KEY] ?? PAGES['home'];
+  });
+  
   public readonly EXTRACTED_PAGES = computed(() => { return this.PAGES(); });
 
   public readonly SHOW_FILLER = signal<boolean>(false);
@@ -60,7 +73,9 @@ export class SemanticHome implements AfterViewInit {
   @ViewChild('rightDrawer') public rightSideBtn!: MatSidenav;
   @ViewChild('leftDrawer') public leftSideBtn!: MatSidenav;
 
-  constructor(private theme: ThemeService) {
+  constructor(
+	private theme: ThemeService,
+	private router: Router) {
     this.PAGES.set(this.theme.getContent('pages'));
   }
 
@@ -75,5 +90,26 @@ export class SemanticHome implements AfterViewInit {
 
   public setLeftSideNav(): void {
     this._MAT_SIDE_LEFT_NAV_SERVICE.setLeftSideBar(this.leftSideBtn);
+  }
+  
+  /**
+   * Watches route changes and extracts the last URL segment
+   * as the active page key (e.g. '/home' -> 'home', '/shop' -> 'shop').
+   * */
+  private _trackActiveRoute(): void {
+    const EXTRACT_KEY = (url: string): string => {
+		const SEGMENTS = url.split('/').filter(Boolean);
+		return SEGMENTS[SEGMENTS.length - 1] || 'none';
+    };
+    
+    // Set initial page from current URL
+    this.ACTIVE_PAGE.set(EXTRACT_KEY(this.router.url));
+    
+    // Update on every navigation
+    this.router.events.pipe(
+		filter(e => e instanceof NavigationEnd)
+    ).subscribe((e: any) => {
+		this.ACTIVE_PAGE.set(EXTRACT_KEY(e.urlAfterRedirects));
+	});
   }
 }
