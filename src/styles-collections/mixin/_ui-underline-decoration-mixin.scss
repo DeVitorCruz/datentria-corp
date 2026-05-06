@@ -1,22 +1,28 @@
 @use '../../styles-collections/mixin/density/density-mixin' as *;
 @use '../../styles-collections/mixin/base/base-mixin' as *;
-@use '../../styles-collections/mixin/color/color-mixin' as *;
 
-@mixin ui-underline-decoration($color, $top: 72%, $left: 6%) {
+@mixin ui-underline-decoration($background-color: red, $top: 72%, $left: 6%) {
     &::after {
-        content: "";
-        @include dimension(0, 2px);
-        @include content-color($color);
-        @include position-features(absolute);
+		@include dimension(0, 2px);
         @include direction-position($top, auto, auto, $left);
-        @include transition-features(all .3s ease-out);
-        @include enable-fade-picture(0, hidden);
+		
+		& { 
+			content: ""; 
+			position: absolute;	
+			transition: all .3s ease-out; 
+			opacity: 0;
+			visibility: hidden;
+			background-color: $background-color;
+		}
     }
 
     &:hover {
         &::after {
             @include dimension(40px, 2px);
-            @include enable-fade-picture(1, visible);
+            & {
+				opacity: 1;
+				visibility: visible;
+            }
         }
     }
 }

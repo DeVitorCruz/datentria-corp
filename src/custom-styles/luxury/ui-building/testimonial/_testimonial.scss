@@ -1,0 +1,74 @@
+@use '../../../../styles-collections/mixin/density/density-mixin' as *;
+@use '../../../../styles-collections/mixin/base/base-mixin' as *;
+@use '../../../../styles-collections/mixin/typography/font-scales' as *;
+@use '../../../../styles-collections/breakpoints' as *;
+@use '../../variables' as var;
+
+@mixin testimonial-all-features() {
+	app-testimonial {
+		// Spacing variables
+		--testimonial-padding-y: 80px;
+		--testimonial-padding-y-md: 90px;
+		--testimonial-padding-y-lg: 120px;
+		--testimonial-max-width: 1280px;
+		--testimonial-gap: 40px;
+		--testimonial-gap-lg: 60px;
+		--testimonial-image-width: 40%;
+		
+		// Image
+		.testimonial__image {
+			.ui-image-flex img {
+				@include dimension($width: 100%, $height: auto);
+				border-radius: 8px;
+			}
+		}
+		
+		// Header - Title
+		.text-box-block {
+			app-flex-heading {
+				h2 {
+					@include font-collect($font-family: var.$font-family-cinzel, $font-weight: var.$font-weight-bold, $font-size: 28px, $line-height: 1.2);
+					color: var.$secondary-color;
+					text-transform: uppercase;
+					margin: 0 0 12 0;
+				}
+			}
+			
+			.ui-text {
+				color: var.$primary-color;
+				font-size: var.$font-size-base;
+				margin: 0 0 24px 0;
+				line-height: var.$line-scale;
+			}
+		}
+		
+		// Quote slide
+		.text-box-block__testimonial-quote-0 {
+			padding: 24px;
+			background-color: var.$fourth-color;
+			border-radius: 8px;
+			margin: 0 0 16px 0;
+			
+			.ui-text {
+				color: var.$primary-color;
+				font-size: var.$font-size-base;
+				font-style: italic;
+				line-height: var.$line-scale;
+			}
+		}
+		
+		// Author block
+		.text-box-block__testimonial-author-1 {
+			app-flex-heading h4 {
+				@include font-dimension($font-size: 16px, $font-weight: var.$font-weight-bold, $line-height: inherit);
+				color: var.$secondary-color;
+				margin: 0 0 4px 0;
+			}
+			
+			.ui-text {
+				color: var.$tertiary-color;
+				font-size: 13px;
+			}
+		}
+	}
+}

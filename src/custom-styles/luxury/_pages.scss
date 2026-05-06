@@ -1,5 +1,7 @@
 @use './home' as *;
+@use './ui-building/testimonial/testimonial' as *;
 
 @mixin all-page-collected() {
     @include home-all-features();
+    @include testimonial-all-features();
 }

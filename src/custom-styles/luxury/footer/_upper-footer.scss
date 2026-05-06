@@ -13,7 +13,9 @@
         @include display-features($display: flex, $justify-content: left, $flex-direction: column, $align-items: start, $align-content: center, $flex-wrap: wrap);
 
         .item-space__upper-footer-element-0, .item-space__upper-footer-element-1, .item-space__upper-footer-element-2, .item-space__upper-footer-element-3 {
-            @include flex-position-features(0 0 auto);
+            & {
+				flex: 0 0 auto;
+            }
             @include dimension($width: 100%, $height: auto);
         }
 
@@ -31,19 +33,29 @@
 
 
         @include respond(md) {
-            @include display-features($display: flex, $justify-content: left, $flex-direction: row, $align-items: start, $align-content: center, $flex-wrap: wrap);
-            
+			& {
+				display: flex;
+				flex-direction: row;
+			}
+    
             .item-space__upper-footer-element-0, .item-space__upper-footer-element-1, .item-space__upper-footer-element-2, .item-space__upper-footer-element-3 {
-                @include flex-position-features(0 0 auto);
+                & {
+					flex: 0 0 auto;
+                }
                 @include dimension($width: 50%, $height: auto);
             }
         }
 
         @include respond(lg) {
-            @include display-features($display: flex, $justify-content: left, $flex-direction: row, $align-items: start, $align-content: center, $flex-wrap: wrap);
+			& {
+				display: flex;
+				flex-direction: row;
+			}
             
             .item-space__upper-footer-element-0, .item-space__upper-footer-element-1, .item-space__upper-footer-element-2, .item-space__upper-footer-element-3 {
-                @include flex-position-features(0 0 auto);
+                & {
+					flex: 0 0 auto;
+                }
                 @include dimension($width: 25%, $height: auto);
             }
         }

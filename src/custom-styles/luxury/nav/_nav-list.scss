@@ -12,35 +12,35 @@
 
 @mixin nav-list-all-features() {
     .nav-block__nav-list {
-        @include display-features(none);
-        
+		display: none; 
+      
         app-custom-list:has(.ui-list-custom) {
             .ui-list-custom {
                 @include intern-visibility-hover-sequence(2, 'ui-list-custom__list-item', 'ui-list-custom');
                 
-                .ui-list-custom__list-item {
-                    @include position-features(relative);
-                    @include transition-features();
-    
+                .ui-list-custom__list-item { 
+					position: relative; 
+					transition: all .2s ease-out; 
+					                    
                     app-button-flex:has(.ui-btn-flex) {
                         .ui-btn-flex {
                             @include display-features($display: flex, $justify-content: space-between, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
                             app-icon-flex {
-                                @include display-features($display: none, $justify-content: space-between, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
+                                display: none;
                             }
                         }
                     }
 
                     &:hover {
-                        @include text-color(var.$secondary-color);
-    
+						color: var.$secondary-color;
+                      
                         .ui-list-custom {
                             @include direction-position(100%, auto, auto, auto);
                         }
                     }
     
                     .ui-list-custom {
-                        @include ui-menu-panel(110%);
+                        @include ui-menu-panel(110%, var.$white-color);
     
                         .ui-list-custom__list-item {
                             &:hover {
@@ -59,22 +59,22 @@
                             }
     
                             .ui-btn-flex, .ui-link-e {
-                                @include box-internal-space(10px, 15px, 10px, 15px);
-                                @include ui-underline-decoration(var.$secondary-color);
+								@include ui-underline-decoration($background-color: var.$secondary-color);
+								padding: 10px 15px 10px 15px; 
                             }
     
                             .ui-link-e {
-                                @include display-features(block);
+								display: block;
                             }
                         }
                     }
     
                     .ui-btn-flex, .ui-link-e {
-                        @include box-internal-space(30px, 6px, 30px, 6px);
+						padding: 30px 6px 30px 6px;
                     }
     
                     .ui-link-e {
-                        @include display-features(block);
+						display: block; 
                     }
                 }
 
@@ -91,7 +91,7 @@
         }
 
         @include respond('lg') {
-            @include display-features(inline-block);
+			display: inline-block;
         }
     }
 }

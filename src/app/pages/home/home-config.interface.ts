@@ -1,5 +1,6 @@
 import { ContainerBlock } from "../../shared/ui/container/container-block.interface";
 import { FlexCollectionItem } from "../../shared/ui/flex-collection/flex-collection-item.interface";
+import { TestimonialContent } from '../../../ui-building/testimonial/testimonial.interface';
 
 export interface HomeConfig {
     staticHero: ContainerBlock;
@@ -7,5 +8,6 @@ export interface HomeConfig {
     collection: FlexCollectionItem;
     detachedElement: ContainerBlock;
     textImage: ContainerBlock;
+    testimonial: TestimonialContent;
     collectionInfo: ContainerBlock;
 };

@@ -1,5 +1,3 @@
-@use '../../../styles-collections/mixin/base/base-mixin' as *;
-@use '../../../styles-collections/mixin/color/color-mixin' as *;
 @use '../../../styles-collections/mixin/density/density-mixin' as *;
 
 @use '../../../styles-collections/breakpoints' as *;
@@ -11,11 +9,13 @@
 
 @mixin footer-all-features() {
     .ui-sequence-block__footer-childs {
-        @include content-color(var.$secondary-color);
-        @include text-color(var.$white-color);
-        @include box-internal-space($top: 90px, $right: 0px, $bottom: 0px, $left: 0px);
-        @include position-features($position: relative);
-
+		& {
+			position: relative;
+			background-color: var.$secondary-color;
+			color: var.$white-color;
+			padding: 90px 0px 0px 0px;
+		}
+        
         .item-space-0 {
             @include Upper-all-features();
         }
@@ -25,28 +25,36 @@
         }
 
         @include respond(lg) {
-            @include box-internal-space($top: 0px, $right: 0px, $bottom: 0px, $left: 0px);
+			& {
+				padding: 0px 0px 0px 0px;
+			}
         }
     }
     
     .footer__upper--container, 
     .footer__lower--container {
+		& {
+			padding: 0 11.2px 0 11.2px;
+			margin: 0 auto 0 auto;
+		}
 		@include max-dimension($max-width: 1280px, $max-height: auto);
-		@include box-external-space($top: 0, $right: auto, $bottom: 0, $left: auto);
-		@include box-internal-space($top: 0, $right: 11.2px, $bottom: 0, $left: 11.2px);
     }    
     
     .search-form__button {
-		@include display-features($display: flex, $align-items: center, $justify-content: center);
-		@include box-internal-space($top: 8px, $right: 16px, $bottom: 8px, $left: 16px);
-		@include transition-features();
-		@include view-ui-cursor($cursor: pointer);
+		& {
+			display: flex;
+			padding: 8px 16px 8px 16px;	
+			transition: all .2s ease-out;
+			cursor: pointer;
+		}	
     }
     
     .search-form__input {
-		@include flex-position-features($flex: 1);
-		@include box-internal-space($top: 8px, $right: 16px, $bottom: 8px, $left: 16px);
-		@include content-color($background-color: transparent);	
+		& {
+			flex: 1;
+			padding: 8px 16px 8px 16px;
+			background-color: transparent;
+		}	
 		&:focus { outline: none }
     }
 }

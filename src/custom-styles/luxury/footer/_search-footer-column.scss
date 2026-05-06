@@ -10,31 +10,43 @@
 
 @mixin search-footer-column-all-features() {
     .text-box-block__search-text-box-3 {
-        @include box-internal-space($top: 0px, $right: 15px, $bottom: 0px, $left: 15px);
-        @include box-external-space($top: 0, $right: 0, $bottom: 70px, $left: 0);   
-
+		& {
+			padding: 0px 15px 0px 15px;
+			margin: 0 0 70px 0;
+		}
+        
         .ui-flex-heading {
-            @include box-external-space($top: 0px, $right: 0px, $bottom: 35px, $left: 0px);
+			& {
+				margin: 0px 0px 35px 0px;
+			}
             @include font-collect(var.$font-family-cinzel, 700, 23px);
             @include text-format($text-transform: uppercase, $text-align: left);
         }
 
         .ui-text {
-            @include box-external-space($top: 0, $right: 0, $bottom: 15px, $left: 0);
+			& {
+				margin: 0 0 15px 0;
+			}
         }
 
         .ui-flex-form {
-            @include box-external-space($top: 30px, $right: 0, $bottom: 0px, $left: 0);
+			& {
+				position: relative;
+				margin: 30px 0 0px 0;
+			}
             @include dimension($width: 100%, $height: auto);
-            @include position-features($position: relative);
             @include display-features($display: flex, $justify-content: left, $flex-direction: row, $align-items: center, $align-content: center);
 
             app-flex-input {
-                @include flex-position-features(0 0 80%);
+				& {
+					flex: 0 0 80%; 
+				}
             }
 
             app-button-flex {
-                @include flex-position-features(0 0 20%);
+				& {
+					flex: 0 0 20%;
+				}
             }
 
             .ui-input-flex {
@@ -47,8 +59,10 @@
         }
 
         @include respond(lg) {
-            @include box-internal-space($top: 140px, $right: 15px, $bottom: 140px, $left: 15px);
-            @include box-external-space($top: 0, $right: 0, $bottom: 0px, $left: 0);
+			& {
+				padding: 140px 15px 140px 15px;
+				margin: 0 0 0px 0;
+			}
         }
     }
 }

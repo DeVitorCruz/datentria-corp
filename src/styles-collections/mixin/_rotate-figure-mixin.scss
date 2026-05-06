@@ -1,6 +1,4 @@
 @mixin rotate-figure($time: 4s, $type: linear, $repeat: infinite) {
-    animation: rotate $time $type $repeat;
-
     @keyframes rotate {
         0% {
             transform: rotate(0deg);
@@ -10,4 +8,5 @@
             transform: rotate(360deg);
         }
     }
+    & { animation: rotate $time $type $repeat; }
 }

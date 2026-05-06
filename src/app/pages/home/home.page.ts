@@ -3,12 +3,14 @@ import { ContainerComponent } from '../../shared/ui/container/container.componen
 import { FlexCollectionComponent } from '../../shared/ui/flex-collection/flex-collection.component';
 import { HomeConfig } from './home-config.interface';
 import { HOME_CONFIG } from './HOME_CONFIG';
+import { TestimonialComponent } from '../../../ui-building/testimonial/testimonial.component';
 
 @Component({
   selector: 'app-new-home',
   imports: [
     ContainerComponent,
-    FlexCollectionComponent
+    FlexCollectionComponent,
+    TestimonialComponent
   ],
   templateUrl: './home.page.html'
 })
