@@ -1,12 +1,12 @@
 import { Component, input, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TestimonialContent } from './testimonial.interface';
-import { TextBoxComponent } from '../../app/shared/ui/text-box/text-box.component';
-import { ImgFlex } from '../../app/shared/ui/img-flex/img-flex.component';
-import { SlideComponent } from '../../app/shared/ui/side-slide/slide.component';
-import { SlidItem } from '../../app/shared/ui/side-slide/slide-item.interface';
-import { SlideSwiperScreen } from '../../app/shared/ui/side-slide/slide-swiper-screen.interface';
-import { SwiperButton } from '../../app/shared/ui/side-slide/slide-next-button.interface';
+import { TextBoxComponent } from '@shared/ui/text-box/text-box.component';
+import { ImgFlex } from '@shared/ui/img-flex/img-flex.component';
+import { SlideComponent } from '@shared/ui/side-slide/slide.component';
+import { SlidItem } from '@shared/ui/side-slide/slide-item.interface';
+import { SlideSwiperScreen } from '@shared/ui/side-slide/slide-swiper-screen.interface';
+import { SwiperButton } from '@shared/ui/side-slide/slide-next-button.interface';
 import { Navigation, Pagination } from 'swiper/modules';
 
 

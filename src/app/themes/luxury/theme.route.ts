@@ -9,7 +9,7 @@ export const JEWELRY_LUXURY_THEME_ROUTE: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import('../../pages/home/HOME_ROUTES')
+                loadChildren: () => import('./pages/home/HOME_ROUTES')
 					.then((m) => m.HOME_ROUTES),
             },
             {

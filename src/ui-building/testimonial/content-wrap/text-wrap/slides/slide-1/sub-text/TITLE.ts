@@ -1,6 +1,6 @@
-import { FlexHeadingItem } from "../../../../../../../app/shared/ui/flex-heading/flex-heading-item";
-import { SequenceSpaceItem } from "../../../../../../../app/shared/ui/sequence-space/sequence-space-item";
-import { TextBoxComponent } from "../../../../../../../app/shared/ui/text-box/text-box.component";
+import { FlexHeadingItem } from "@shared/ui/flex-heading/flex-heading-item";
+import { SequenceSpaceItem } from "@shared/ui/sequence-space/sequence-space-item";
+import { TextBoxComponent } from "@shared/ui/text-box/text-box.component";
 
 export const TITLE: SequenceSpaceItem = {
 	id: 0,
