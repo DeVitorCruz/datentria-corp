@@ -9,7 +9,7 @@ export const HOME_ROUTES: Routes = [
     },
     {
         path: '',
-        loadChildren: () => import('../../../../pages/banner-bind-router/BANNER_BIND_ROUTER')
+        loadChildren: () => import('../BANNER_BIND_ROUTER')
             .then(m => m.BANNER_BIND_ROUTER),
     },
     {

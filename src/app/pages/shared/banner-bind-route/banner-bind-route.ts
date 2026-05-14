@@ -1,9 +1,9 @@
 import { Component, computed, inject, OnDestroy, signal } from '@angular/core';
-import { FlexCardComponent } from '../../shared/ui/flex-card/flex-card.component';
+import { FlexCardComponent } from '@shared/ui/flex-card/flex-card.component';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { FlexCardItem } from '../../shared/ui/flex-card/flex-card-item';  
-import { BreadCrumbComponent } from '../../shared/ui/bread-crumb/bread-crumb.component';
+import { FlexCardItem } from '@shared/ui/flex-card/flex-card-item';  
+import { BreadCrumbComponent } from '@shared/ui/bread-crumb/bread-crumb.component';
 import { TAILWIND_BREAD_CRUMB } from './tailwindCollect/TAILWIND_BREAD_CRUMB';
 
 @Component({

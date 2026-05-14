@@ -1,10 +1,10 @@
 import { Routes } from "@angular/router";
-import { BannerBindRoute } from "./banner-bind-route";
-import { AboutPage } from "../about/about.page";
-import { FlexCardItem } from "../../shared/ui/flex-card/flex-card-item";
-import { MediaImg } from "../../core/models/media/media-img.interface";
-import { TextBox } from "../../shared/ui/text-box/text-box-item.interface";
-import { FlexHeadingItem } from "../../shared/ui/flex-heading/flex-heading-item";
+import { BannerBindRoute } from "@pages/shared/banner-bind-route/banner-bind-route";
+import { AboutPage } from "@themes/luxury/pages/about/about.page";
+import { FlexCardItem } from "@shared/ui/flex-card/flex-card-item";
+import { MediaImg } from "@core/models/media/media-img.interface";
+import { TextBox } from "@shared/ui/text-box/text-box-item.interface";
+import { FlexHeadingItem } from "@shared/ui/flex-heading/flex-heading-item";
 
 export const BANNER_BIND_ROUTER: Routes = [
     {
