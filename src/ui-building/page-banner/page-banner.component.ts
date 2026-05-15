@@ -1,16 +1,16 @@
 import { Component, input, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { BreadcumbItem } from './breadcrumbItem.interface';
+import { PageBannerItem } from './page-banner.interface';
 
 @Component({
-  selector: 'app-page-title-banner',
+  selector: 'app-page-banner',
   imports: [RouterLink],
-  templateUrl: './page-title-banner.component.html',
-  styleUrl: './page-title-banner.component.scss'
+  templateUrl: './page-banner.component.html',
+  styleUrl: './page-banner.component.scss'
 })
-export class PageTitleBannerComponent {
+export class PageBannerComponent {
 	public readonly TITLE = input.required<string>();
-	public readonly BREADCRUMBS = input<BreadcumbItem[]>([]);
+	public readonly BREADCRUMBS = input<PageBannerItem[]>([]);
 	public readonly BG_IMAGE = input<string>('');
 	
 	public readonly _BREADCUMBS = computed(() => this.BREADCRUMBS());

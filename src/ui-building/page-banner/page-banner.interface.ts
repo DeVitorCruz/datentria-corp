@@ -1,4 +1,4 @@
-export interface BreadcumbItem {
+export interface PageBannerItem {
 	label: string;
 	path?: string;
 };
