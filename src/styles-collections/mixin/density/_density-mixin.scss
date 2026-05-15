@@ -6,7 +6,6 @@
 @mixin max-dimension($max-width: unset, $max-height: unset) {
 	max-width: $max-width;
 	max-height: $max-height;
-
 }
 
 @mixin min-dimension($min-width: unset, $min-height: unset) {

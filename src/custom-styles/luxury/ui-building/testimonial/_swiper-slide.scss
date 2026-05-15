@@ -1,0 +1,31 @@
+@use '../../../../styles-collections/mixin/typography/font-scales' as *;
+@use '../../variables' as var;
+
+@mixin swiper-slide-all-features() {
+    .text-box-block__testimonial-quote-0 {
+        padding: 24px;
+        margin: 0 0 16px 0;
+        background-color: var.$fourth-color;
+        border-radius: 8px;
+
+        .ui-text {
+            color: var.$primary-color;
+            font-size: var.$font-size-base;
+            font-style: italic;
+            line-height: var.$line-scale;
+        }
+    }
+
+    .text-box-block__testimonial-author-1 {
+        app-flex-heading h4 {
+            @include font-dimension($font-size: 16px, $font-weight: var.$font-weight-bold, $line-height: inherit);
+            color: var.$secondary-color;
+            margin: 0 0 4px 0;
+        }
+
+        .ui-text {
+            color: var.$tertiary-color;
+            font-size: 13px;
+        }
+    }
+}
