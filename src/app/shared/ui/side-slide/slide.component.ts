@@ -1,6 +1,6 @@
 import { Swiper } from 'swiper';
 import { isPlatformBrowser, NgComponentOutlet } from '@angular/common';
-import { Component, computed, Inject, input, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { AfterViewInit, Component, computed, Inject, input, PLATFORM_ID, signal } from '@angular/core';
 import { SlidItem } from './slide-item.interface';
 import { ButtonFlex } from '../button/button.component';
 
@@ -14,7 +14,7 @@ import { ButtonFlex } from '../button/button.component';
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class SlideComponent implements AfterViewInit {
   public swiper!: Swiper;
   public readonly IS_BROWSER = signal<boolean>(true);
   public readonly SLIDE_ITEM = input.required<SlidItem>();
@@ -26,7 +26,7 @@ export class SlideComponent implements OnInit {
     this.IS_BROWSER.set(isPlatformBrowser(this.platformId));
   }
   
-  public ngOnInit(): void {
+  public ngAfterViewInit(): void {
     this.setSwiper();
   }
 

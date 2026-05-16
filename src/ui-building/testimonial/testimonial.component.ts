@@ -1,4 +1,4 @@
-import { Component, input, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { Component, input, Inject, OnInit, PLATFORM_ID, signal, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TestimonialContent } from './testimonial.interface';
 import { TextBoxComponent } from '@shared/ui/text-box/text-box.component';
@@ -17,7 +17,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 	templateUrl: './testimonial.component.html',
 	styleUrl: './testimonial.component.scss'
 })
-export class TestimonialComponent implements OnInit {
+export class TestimonialComponent implements OnInit, AfterViewInit {
 	public readonly CONTENT = input.required<TestimonialContent>();
 	public readonly IS_BROWSER = signal<boolean>(false);
 	public slideItem!: SlidItem;
@@ -30,6 +30,10 @@ export class TestimonialComponent implements OnInit {
 		this.slideItem = this._buildSlideItem();
 	}
 	
+	public ngAfterViewInit(): void {
+		this.slideItem = this._buildSlideItem();
+	}
+
 	/**
 	 * Builds the SlidItem from TestimonialSlide[] using TextBoxComponent
 	 * for each slide screen - fully reusing the shared slide system.
@@ -92,9 +96,12 @@ export class TestimonialComponent implements OnInit {
 					nextEl: '.swiper-button-next',
 					prevEl: '.swiper-button-prev'
 				},
+				scrollbar: {
+					el: '.swiper-scrollbar'
+				}
 			},
 			swiperSlideList: slideList,
-			buttonList,
+			buttonList: buttonList,
 		};
 	}
 }
