@@ -1,4 +1,4 @@
-import { Component, input, Inject, OnInit, PLATFORM_ID, signal, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, input, Inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TestimonialContent } from './testimonial.interface';
 import { TextBoxComponent } from '@shared/ui/text-box/text-box.component';
@@ -8,7 +8,15 @@ import { SlidItem } from '@shared/ui/side-slide/slide-item.interface';
 import { SlideSwiperScreen } from '@shared/ui/side-slide/slide-swiper-screen.interface';
 import { SwiperButton } from '@shared/ui/side-slide/slide-next-button.interface';
 import { Navigation, Pagination } from 'swiper/modules';
-
+import { ContainerComponent } from '@shared/ui/container/container.component';
+import { ContainerBlock } from '@shared/ui/container/container-block.interface';
+import { SequenceSpaceItem } from '@shared/ui/sequence-space/sequence-space-item';
+import { SequenceSpaceComponent } from '@shared/ui/sequence-space/sequence-space.component';
+import { TextBox } from '@shared/ui/text-box/text-box-item.interface';
+import { FlexHeadingItem } from '@shared/ui/flex-heading/flex-heading-item';
+import { IconFlexComponent } from '@shared/ui/icon-flex/icon-flex.component';
+import { IconSwitch } from '@shared/ui/icon-flex/icon-switch.type';
+import { faQuoteLeft, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-testimonial',
@@ -17,7 +25,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 	templateUrl: './testimonial.component.html',
 	styleUrl: './testimonial.component.scss'
 })
-export class TestimonialComponent implements OnInit, AfterViewInit {
+export class TestimonialComponent implements OnInit {
 	public readonly CONTENT = input.required<TestimonialContent>();
 	public readonly IS_BROWSER = signal<boolean>(false);
 	public slideItem!: SlidItem;
@@ -30,10 +38,6 @@ export class TestimonialComponent implements OnInit, AfterViewInit {
 		this.slideItem = this._buildSlideItem();
 	}
 	
-	public ngAfterViewInit(): void {
-		this.slideItem = this._buildSlideItem();
-	}
-
 	/**
 	 * Builds the SlidItem from TestimonialSlide[] using TextBoxComponent
 	 * for each slide screen - fully reusing the shared slide system.
@@ -41,27 +45,104 @@ export class TestimonialComponent implements OnInit, AfterViewInit {
 	private _buildSlideItem(): SlidItem {
 		const slideList: SlideSwiperScreen[] = this.CONTENT().slides.map(
 			(slide, index) => ({
-					id: index,
-					swiperComponent: TextBoxComponent,
-					swiperInput: {
-						TEXT_BOX_LIST: [
+				id: index,
+				swiperComponent: ContainerComponent,
+				swiperInput: {
+					BLOCK_SEQUENCE_SPACE: {
+						id: index,
+						customBlockClassName: 'swiper-slid-list-block',
+						customElementClassName: 'swiper-slid-list-element',
+						customClassName: [],
+						items: [
 							{
-								id: 0,
-								text: [slide.quote],
-								customBlockClassName: 'testimonial-quote',
-							},
-							{
-								id: 1,
-								heading: {
-									id: 0,
-									headingType: 'h4',
-									text: slide.author,
+								id: 0,  
+								customClassName: [],
+								component: SequenceSpaceComponent,
+								componentInput: {
+									SEQUENCE_SPACE_LIST: [
+										{
+											id: 0,  
+											customClassName: [],
+											component: IconFlexComponent,
+											componentInput: {
+												ICON_SWITCH: {
+													type: 'iconAwesome',
+													currentIcon: (slide.icon ?? faQuoteLeft) as IconDefinition,
+												} as IconSwitch,
+											},
+										} as SequenceSpaceItem,
+										{
+											id: 1,  
+											customClassName: [],
+											component: TextBoxComponent,
+											componentInput: {
+												TEXT_BOX_LIST: [{
+													id: 0,
+													customBlockClassName: '',
+												}] as TextBox[]
+											},
+										} as SequenceSpaceItem,
+									] as SequenceSpaceItem[],
+									COSTUME_CLASS_BLOCK_NAME: 'icon-swiper-wrap-block',
+									COSTUME_CLASS_ELEMENT: 'icon-swiper-wrap-element',
+									COSTUME_CLASS_NAME_LIST: []
 								},
-								text: [slide.role],
-								customBlockClassName: 'testimonial-author',
-							}
-						]
-					}
+							} as SequenceSpaceItem,
+							{
+								id: 1,  
+								customClassName: [],
+								component: TextBoxComponent,
+								componentInput: {
+									TEXT_BOX_LIST: [{
+										id: 0,
+										text: [slide.quote],
+										customBlockClassName: 'text-swiper-slide',
+									}],
+								},
+							} as SequenceSpaceItem,
+							{
+								id: 2,  
+								customClassName: [],
+								component: SequenceSpaceComponent,
+								componentInput: {
+									SEQUENCE_SPACE_LIST: [
+										{
+											id: 0,  
+											customClassName: [],
+											component: TextBoxComponent,
+											componentInput: {
+												TEXT_BOX_LIST: [{
+													id: 0,
+													heading: {
+														id: 0,
+														headingType: 'h4',
+														text: slide.author,
+													} as  FlexHeadingItem,
+													customBlockClassName: 'testimonial-author',
+												}] as TextBox[],
+											},
+										} as SequenceSpaceItem,
+										{
+											id: 1,  
+											customClassName: [],
+											component: TextBoxComponent,
+											componentInput: {
+												TEXT_BOX_LIST: [{
+													id: 0,
+													text: [slide.role],
+													customBlockClassName: 'testimonial-role',
+												}] as TextBox[],
+											},
+										} as SequenceSpaceItem,
+									] as SequenceSpaceItem[],
+									COSTUME_CLASS_BLOCK_NAME: 'sub-text-swiper-block',
+									COSTUME_CLASS_ELEMENT: 'sub_text-swiper-element',
+									COSTUME_CLASS_NAME_LIST: []
+								},
+							} as SequenceSpaceItem,
+						] as SequenceSpaceItem[],
+					} as ContainerBlock,
+				}
 			})
 		);
 		
@@ -89,15 +170,12 @@ export class TestimonialComponent implements OnInit, AfterViewInit {
 			slideConfig: {
 				modules: [Navigation, Pagination],
 				slidesPerView: 1,
+				direction: 'horizontal',
 				loop: true,
-				effect: 'fade',
 				pagination: { el: '.swiper-pagination', clickable: true },
 				navigation: {
 					nextEl: '.swiper-button-next',
 					prevEl: '.swiper-button-prev'
-				},
-				scrollbar: {
-					el: '.swiper-scrollbar'
 				}
 			},
 			swiperSlideList: slideList,
