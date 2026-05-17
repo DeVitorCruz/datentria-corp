@@ -7,7 +7,6 @@ export interface HomeConfig {
     cardTrack: ContainerBlock;
     collection: FlexCollectionItem;
     detachedElement: ContainerBlock;
-    textImage: ContainerBlock;
     testimonial: TestimonialContent;
     collectionInfo: ContainerBlock;
 };

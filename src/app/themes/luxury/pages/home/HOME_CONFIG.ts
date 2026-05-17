@@ -6,9 +6,9 @@ import { COLLECTION_INFO } from "./collection-info/COLLECTION_INFO";
 import { DETACHED_ELEMENT } from "./detached-element/DETACHED_ELEMENT";
 import { HomeConfig } from "./home-config.interface";
 import { STATIC_HERO } from "./static-hero/STATIC_HERO";
-import { TEXT_IMAGE } from "./text-image/TEXT_IMAGE";
 import { TestimonialContent } from "@ui-building/testimonial/testimonial.interface";
 import { MediaImg } from "@core/models/media/media-img.interface";
+import { faQuoteLeft, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 const TESTIMONIAL_CONTENT: TestimonialContent = {
     header: [
@@ -26,19 +26,22 @@ const TESTIMONIAL_CONTENT: TestimonialContent = {
 		{
 			quote: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
 			author: 'Jennifer Lopez',
-			role: 'Happy Customer'
+			role: 'Happy Customer',
+			icon: faQuoteLeft as IconDefinition,
 		},
 		{
 			quote: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.',
 			author: 'Jennifer Lopez',
-			role: 'Happy Customer'
+			role: 'Happy Customer',
+			icon: faQuoteLeft as IconDefinition,
 		},
 		{
 			quote: 'Neque convallis a cras semper auctor. Adipiscing elit ut aliquam purus sit amet luctus. Mauris vitae ultricies leo integer.',
 			author: 'Michael Brown',
-			role: 'Happy Customer'
+			role: 'Happy Customer',
+			icon: faQuoteLeft as IconDefinition,
 		},
-	]		
+	],		
 };
 
 
@@ -47,7 +50,6 @@ export const HOME_CONFIG: HomeConfig = {
     cardTrack: CARD_TRACK as ContainerBlock,
     collection: COLLECTION_CARD as FlexCollectionItem,
     detachedElement: DETACHED_ELEMENT as ContainerBlock,
-    textImage: TEXT_IMAGE as ContainerBlock,
     testimonial: TESTIMONIAL_CONTENT,
     collectionInfo: COLLECTION_INFO as ContainerBlock,
 };
