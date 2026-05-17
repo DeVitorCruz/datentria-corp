@@ -6,7 +6,7 @@
 @mixin swiper-pagination-all-features() {
     .swiper-pagination.swiper-pagination-bullets {
         @include display-features($display: flex, $justify-content: center, $flex-direction: row, $align-items: center, $align-content: center, $flex-wrap: nowrap);
-        @include direction-position($top: unset, $right: unset, $bottom: -10%, $left: unset);
+        @include direction-position($top: unset, $right: 0, $bottom: -10%, $left: unset);
     
         .swiper-pagination-bullet {
             @include dimension($width: 10px, $height: 10px);

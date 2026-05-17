@@ -5,22 +5,30 @@
 
 @mixin swiper-button-all-features() {
     .btn-block {
-        @include direction-position($top: 80%, $right: unset, $bottom: unset, $left: -158%);
+        @include direction-position($top: 80%, $right: unset, $bottom: unset, $left: -137%);
         position: absolute;
         display: none;
 
+        .swiper-navigation-icon {
+            display: none;
+        }
+
         .swiper-button-prev, 
         .swiper-button-next {
-            app-button-flex .ui-btn-flex {
-                @include font-collect($font-family: var.$font-family-sans, $font-weight: var.$font-weight-regular, $font-size: 30px, $line-height: 1.5);
-                color: var.$secondary-color;
-                transition: all .3s ease-in-out;
+            app-button-flex:has(.ui-btn-flex) {
+                display: block;
 
-                &:hover {
-                    color: var.$tertiary-color;
-                    transform: scale(1.3);
-                }
-            }           
+                .ui-btn-flex {
+                    @include font-collect($font-family: var.$font-family-sans, $font-weight: var.$font-weight-regular, $font-size: 30px, $line-height: 1.5);
+                    color: var.$secondary-color;
+                    transition: all .3s ease-in-out;
+    
+                    &:hover {
+                        color: var.$tertiary-color;
+                        transform: scale(1.3);
+                    }
+                }           
+            }
         }
 
         @include respond('lg') {
@@ -28,11 +36,11 @@
         }
 
         @include respond('xl') {
-            @include direction-position($top: 80%, $right: unset, $bottom: unset, $left: -154%,);
+            left: -137;
         }
 
         @include respond('2xl') {
-            @include direction-position($top: 80%, $right: unset, $bottom: unset, $left: -152%,);
+            left: -137;
         }
     }
 }

@@ -7,7 +7,7 @@ import { SlideComponent } from '@shared/ui/side-slide/slide.component';
 import { SlidItem } from '@shared/ui/side-slide/slide-item.interface';
 import { SlideSwiperScreen } from '@shared/ui/side-slide/slide-swiper-screen.interface';
 import { SwiperButton } from '@shared/ui/side-slide/slide-next-button.interface';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { ContainerComponent } from '@shared/ui/container/container.component';
 import { ContainerBlock } from '@shared/ui/container/container-block.interface';
 import { SequenceSpaceItem } from '@shared/ui/sequence-space/sequence-space-item';
@@ -16,7 +16,7 @@ import { TextBox } from '@shared/ui/text-box/text-box-item.interface';
 import { FlexHeadingItem } from '@shared/ui/flex-heading/flex-heading-item';
 import { IconFlexComponent } from '@shared/ui/icon-flex/icon-flex.component';
 import { IconSwitch } from '@shared/ui/icon-flex/icon-switch.type';
-import { faQuoteLeft, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight, faQuoteLeft, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-testimonial',
@@ -150,7 +150,10 @@ export class TestimonialComponent implements OnInit {
 			{
 				id: 0,
 				type: 'button',
-				iconType: { type: 'none' },
+				iconType: { 
+					type: 'iconAwesome',
+					currentIcon: faChevronLeft as IconDefinition,
+				},
 				customClassName: ['ui-button--clickable'],
 				classNameSwiper: 'swiper-button-prev',
 				buttonEventListenerList: [], 
@@ -158,7 +161,10 @@ export class TestimonialComponent implements OnInit {
 			{
 				id: 1,
 				type: 'button',
-				iconType: { type: 'none' },
+				iconType: { 
+					type: 'iconAwesome',
+					currentIcon: faChevronRight as IconDefinition, 
+				},
 				customClassName: ['ui-button--clickable'],
 				classNameSwiper: 'swiper-button-next',
 				buttonEventListenerList: [],
@@ -168,10 +174,11 @@ export class TestimonialComponent implements OnInit {
 		return {
 			containerClassName: 'testimonial-swiper',
 			slideConfig: {
-				modules: [Navigation, Pagination],
+				modules: [Navigation, Pagination, Autoplay],
 				slidesPerView: 1,
 				direction: 'horizontal',
 				loop: true,
+				autoplay: { delay: 4000, },
 				pagination: { el: '.swiper-pagination', clickable: true },
 				navigation: {
 					nextEl: '.swiper-button-next',
