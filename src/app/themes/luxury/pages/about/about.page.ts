@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { TestimonialComponent } from '@ui-building/testimonial/testimonial.component';
 import { AboutConfig } from './about-config.interface';
 import { ABOUT_CONFIG } from './ABOUT_CONFIG';
+import { CardGridComponent } from '@ui-building/card-grid/card-grid.component';
 
 @Component({
   selector: 'app-about',
-  imports: [TestimonialComponent],
+  imports: [TestimonialComponent, CardGridComponent],
   templateUrl: './about.page.html'
 })
 export class AboutPage {
