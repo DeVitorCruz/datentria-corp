@@ -5,7 +5,7 @@
 @use '../../styles-collections/breakpoints' as *;
 @use './variables' as var;
 
-@mixin page-title-banner-all-features() {
+@mixin page-banner-all-features() {
 	app-page-banner:has(.page-title-banner) {
 			
 		// CSS variables consumed by the generic component
