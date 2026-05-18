@@ -3,7 +3,7 @@ import { AnchorFlexItem } from "@shared/ui/anchor-flex/anchor-flex-item.interfac
 export const ID_0_SHOP: AnchorFlexItem = {
     id: 0,
     ariaLabel: 'text-label',
-    rlink: '#',
+    rlink: '/shop',
     switchAbleIcon: {
         type: 'none'
     },

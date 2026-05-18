@@ -12,7 +12,7 @@ import { AnchorFlex } from "@shared/ui/anchor-flex/anchor-flex.component";
     standalone: true,
     imports: [NgClass, TextBoxComponent, ImgFlex, RouterLink, AnchorFlex],
     templateUrl: './card-grid.component.html',
-    styleUrl: 'card-grid.component.scss'
+    styleUrl: './card-grid.component.scss'
 }) export class CardGridComponent {
     public readonly CONTENT = input.required<CardGridContent>();
 }

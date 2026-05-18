@@ -51,9 +51,8 @@ export class BreadCrumbComponent implements OnDestroy {
               const PARAM_VALUE = currentRoute.snapshot.paramMap.get(key);
 
               if (PARAM_VALUE) {
-                label = this.mapDynamicParam(key, PARAM_VALUE);
-              }
-
+                label = currentRoute.snapshot.data['paramLabel'] ?? PARAM_VALUE;
+              } 
             });
           }
           CRUMBS.push({ label, url });
@@ -63,19 +62,6 @@ export class BreadCrumbComponent implements OnDestroy {
       this.BREAD_CRUMB.set(CRUMBS);
     });
   } 
-
-  private mapDynamicParam(key: string, value: string): string {
-    if (key === 'id') {
-      const PRODUCT_NAMES: Record<string, string> = {
-        '1': 'iPhone 15',
-        '2': 'Samsung Galaxy S24',
-        '3': 'Pixel 9',
-      }; 
-      return PRODUCT_NAMES[value] || `Item ${value}`;
-    }
-
-    return value;
-  }
 
   public ngOnDestroy(): void {
     this.sub.unsubscribe();

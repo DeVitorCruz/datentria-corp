@@ -8,12 +8,12 @@ export const HOME_ROUTES: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'home',
+        component: Home,
+    },
+    {
         path: '',
         loadChildren: () => import('../BANNER_BIND_ROUTER')
             .then(m => m.BANNER_BIND_ROUTER),
     },
-    {
-        path: 'home',
-        component: Home,
-    }
 ];
