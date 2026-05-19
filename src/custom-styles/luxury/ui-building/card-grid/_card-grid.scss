@@ -1,0 +1,43 @@
+@use './card-grid-header' as *;
+@use './card-grid-item' as *;
+@use '../../../../styles-collections/breakpoints' as *;
+
+@mixin card-grid-all-features() {
+    app-card-grid:has(.team-grid) {
+        .team-grid {
+            .card-grid__container {
+                @include card-grid-header-all-features();
+
+                .card-grid__body {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+
+                    @include card-grid-item-all-features();
+
+                    @include respond('md') {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+
+                    @include respond('lg') {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+
+                    &--cols-4 {
+                        @include respond('lg') {
+                            grid-template-columns: repeat(4, 1fr);
+                        }
+                    }
+                }   
+            }
+        }
+
+        @include respond('md') {
+            padding: 90px 0 60px 0;
+        }
+
+        @include respond('md') {
+            padding: 120px 0 90px 0;
+        }
+    }
+}
