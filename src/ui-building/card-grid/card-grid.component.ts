@@ -5,12 +5,13 @@ import { TextBoxComponent } from "@shared/ui/text-box/text-box.component";
 import { ImgFlex } from "@shared/ui/img-flex/img-flex.component";
 import { RouterLink } from "@angular/router";
 import { AnchorFlex } from "@shared/ui/anchor-flex/anchor-flex.component";
+import { SequenceSpaceComponent } from "@shared/ui/sequence-space/sequence-space.component";
 
 
 @Component({
     selector: 'app-card-grid',
     standalone: true,
-    imports: [NgClass, TextBoxComponent, ImgFlex, RouterLink, AnchorFlex],
+    imports: [NgClass, TextBoxComponent, ImgFlex, RouterLink, AnchorFlex, SequenceSpaceComponent],
     templateUrl: './card-grid.component.html',
     styleUrl: './card-grid.component.scss'
 }) export class CardGridComponent {

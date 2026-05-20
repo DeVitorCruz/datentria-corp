@@ -36,4 +36,14 @@
             }
         </div>
     </div>
+
+    <!-- Optional decoration -->
+    @if (CONTENT().decoration) {
+        <app-sequence-space
+            [SEQUENCE_SPACE_LIST]="CONTENT().decoration!"
+            [COSTUME_CLASS_BLOCK_NAME]="'card-grid-decoration'"
+            [COSTUME_CLASS_ELEMENT]="'card-grid-decoration-element'"
+            [COSTUME_CLASS_NAME_LIST]="[]">
+        </app-sequence-space>
+    }
 </section>

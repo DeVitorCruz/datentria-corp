@@ -1,5 +1,6 @@
 import { TextBox } from "@shared/ui/text-box/text-box-item.interface";
 import { MediaImg } from "@core/models/media/media-img.interface";
+import { SequenceSpaceItem } from "@shared/ui/sequence-space/sequence-space-item";
 
 export interface CardItem {
     id: number;
@@ -14,4 +15,5 @@ export interface CardGridContent {
     cards: CardItem[];
     gridClassName?: string;
     sectionClassName?: string;
+    decoration?: SequenceSpaceItem[];
 }

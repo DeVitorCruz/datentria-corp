@@ -24,11 +24,22 @@
         }
 
         .card-grid__content {
-            padding: 20px 0 0 0;
+            position: relative;
+            padding: 35px 30px;
+            background-color: var.$white-color;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                @include dimension($width: 30px, $height: 30px);
+                background-color: var.$fifth-color;
+                border-top-left-radius: 4px;
+            }
 
             app-text-box:has(.text-box-block-0) {
                 .text-box-block-0 {
-
                     .ui-flex-heading, .ui-text {
                         text-align: left;
                     }
@@ -45,6 +56,7 @@
                         color: var.$tertiary-color;
                         font-size: 14px;
                         text-transform: capitalize;
+                        margin: 0;
                     }
                 }
             }
