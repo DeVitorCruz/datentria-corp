@@ -1,6 +1,7 @@
 @use './home' as *;
 @use './ui-building/testimonial/testimonial' as *;
 @use './ui-building/card-grid/card-grid' as *;
+@use './about/about' as *;
 @use './page-banner' as *;
 
 @mixin all-page-collected() {
@@ -8,4 +9,5 @@
     @include testimonial-all-features();
     @include card-grid-all-features();
     @include page-banner-all-features();
+    @include about-all-features();
 }
