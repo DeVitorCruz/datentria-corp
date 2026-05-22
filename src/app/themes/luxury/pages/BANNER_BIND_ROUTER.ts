@@ -1,10 +1,6 @@
 import { Routes } from "@angular/router";
 import { BannerBindRoute } from "@pages/shared/banner-bind-route/banner-bind-route";
 import { AboutPage } from "@themes/luxury/pages/about/about.page";
-import { FlexCardItem } from "@shared/ui/flex-card/flex-card-item";
-import { MediaImg } from "@core/models/media/media-img.interface";
-import { TextBox } from "@shared/ui/text-box/text-box-item.interface";
-import { FlexHeadingItem } from "@shared/ui/flex-heading/flex-heading-item";
 import { ShopPage } from "./shop/shop.page";
 import { CheckoutPage } from "./checkout/checkout.page";
 import { CartPage } from "./cart/cart.page";
@@ -18,22 +14,13 @@ import { BlogSinglePage } from "./blog-single/blog-single.page";
 import { ContactPage } from "./contact/contact.page";
 import { Error404Page } from "./error-404/error-404.page";
 import { ShopSinglePage } from "./shop-single/shop-single.page";
+import { BANNER_HEADER } from "./banner-header/BANNER_HEADER";
 
-const BANNER_HEAD: MediaImg = { src: '', alt: '' };
 
-const MAKER_BANNER = (title: string): FlexCardItem => ({
-    id: 0,
-    head: BANNER_HEAD as MediaImg,
-    body: [
-        {
-            id: 0,
-            heading: {
-                id: 0,     
-                headingType: 'h2',
-                text: title,
-            } as FlexHeadingItem,
-        } as TextBox
-    ],
+const MAKE_ROUTE = (breadcrumb: string, paramLabel?: string): Record<string, any> => ({
+    headerBlock: BANNER_HEADER,
+    breadcrumb: breadcrumb,
+    ...(paramLabel && { paramLabel }),
 });
 
 export const BANNER_BIND_ROUTER: Routes = [
@@ -44,72 +31,72 @@ export const BANNER_BIND_ROUTER: Routes = [
             {
                 path: 'about',
                 component: AboutPage,
-                data: { flexCardItem: MAKER_BANNER('ABOUT US'), breadcrumb: 'about' }
+                data: MAKE_ROUTE('about'),
             },
             {
                 path: 'shop',
                 component: ShopPage,
-                data: { flexCardItem: MAKER_BANNER('SHOP'), breadcrumb: 'shop' }
+                data:  MAKE_ROUTE('shop'),
             },
             {
                 path: 'shop/:id',
                 component: ShopSinglePage,
-                data: { flexCardItem: MAKER_BANNER('SHOP'), breadcrumb: 'shop', paramLabel: 'product' }
+                data: MAKE_ROUTE('shop', 'product'),
             },
             {
                 path: 'cart',
                 component: CartPage,
-                data: { flexCardItem: MAKER_BANNER('CART'), breadcrumb: 'cart' }
+                data: MAKE_ROUTE('cart'),
             },
             {
                 path: 'checkout',
                 component: CheckoutPage,
-                data: { flexCardItem: MAKER_BANNER('CHECKOUT'), breadcrumb: 'checkout' }
+                data: MAKE_ROUTE('checkout'),
             },
             {
                 path: 'whishlist',
                 component: WishlistPage,
-                data: { flexCardItem: MAKER_BANNER('WISHLIST'), breadcrumb: 'wishlist' }
+                data: MAKE_ROUTE('whishlist'),
             },
             {
                 path: 'order',
                 component: OrderPage,
-                data: { flexCardItem: MAKER_BANNER('ORDER'), breadcrumb: 'order' }
+                data: MAKE_ROUTE('order'),
             },
             {
                 path: 'faq',
                 component: FaqPage,
-                data: { flexCardItem: MAKER_BANNER('FAQ'), breadcrumb: 'faq' }
+                data: MAKE_ROUTE('faq'),
             },
             {
                 path: 'team',
                 component: TeamPage,
-                data: { flexCardItem: MAKER_BANNER('TEAM'), breadcrumb: 'team' }
+                data: MAKE_ROUTE('team'),
             },
             {
                 path: 'team/:id',
                 component: TeamSinglePage,
-                data: { flexCardItem: MAKER_BANNER('TEAM'), breadcrumb: 'team', paramLabel: 'team member' }
+                data: MAKE_ROUTE('shop', 'team member'),
             },
             {
                 path: 'blog',
                 component: BlogPage,
-                data: { flexCardItem: MAKER_BANNER('BLOG'), breadcrumb: 'blog' }
+                data: MAKE_ROUTE('blog'),
             },
             {
                 path: 'blog/:id',
                 component: BlogSinglePage,
-                data: { flexCardItem: MAKER_BANNER('BLOG'), breadcrumb: 'blog', paramLabel: 'post' }
+                data: MAKE_ROUTE('blog', 'post'),
             },
             {
                 path: 'contact',
                 component: ContactPage,
-                data: { flexCardItem: MAKER_BANNER('CONTACT'), breadcrumb: 'contact' }
+                data: MAKE_ROUTE('contact'),
             },
             {
                 path: '**',
                 component: Error404Page,
-                data: { flexCardItem: MAKER_BANNER('404'), breadcrumb: '404' }
+                data: MAKE_ROUTE('404'),
             },
         ],
     },

@@ -21,7 +21,7 @@ export const TEXT_COL: SequenceSpaceItem = {
                 text: [
                     'Neque convallis a cras semper auctor. Adipiscing elit ut aliquam purus sit amet luctus. Mauris vitae ultricies leo integer. Odio facilisis mauris sit amet massa.',
                     'Sed risus pretium quam vulputate dignissim suspendisse in est. Aliquet nibh praesent tristique magna. Tempus iaculis urna id volutpat. Ornare arcu odio ut sem nulla pharetra diam. Suspendisse in est ante in nibh. Purus non enim praesent elementum facilisis leo vel fringilla est. Auctor eu augue ut lectus arcu bibendum at.',
-                    'Neque convallis a cras semper auctor. Adipiscing elit ut aliquam purus sit amet luctus. Mauris vitae ultricies leo integer. Odio facilisis mauris sit amet massa.',
+                    'Amet luctus venenatis lectus magna fringilla. Nec ultrices dui sapien eget mi proin sed.',
                 ] as string[],
                 customBlockClassName: 'about-body',
             } as TextBox,
