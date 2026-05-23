@@ -3,6 +3,7 @@
 @use './ui-building/card-grid/card-grid' as *;
 @use './about/about' as *;
 @use './page-banner' as *;
+@use './banner-bind/banner-bind' as *;
 
 @mixin all-page-collected() {
     @include home-all-features();
@@ -10,4 +11,5 @@
     @include card-grid-all-features();
     @include page-banner-all-features();
     @include about-all-features();
+    @include banner-bind-all-features();
 }

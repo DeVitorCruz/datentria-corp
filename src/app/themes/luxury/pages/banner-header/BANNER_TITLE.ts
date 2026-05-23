@@ -5,7 +5,7 @@ import { TextBoxComponent } from "@shared/ui/text-box/text-box.component";
 
 
 export const BANNER_TITLE: SequenceSpaceItem = {
-    id: 1,  
+    id: 0,  
     customClassName: [] as string[],
     component: TextBoxComponent,
     componentInput: {

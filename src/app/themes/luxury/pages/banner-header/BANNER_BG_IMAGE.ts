@@ -4,7 +4,7 @@ import { SequenceSpaceItem } from "@shared/ui/sequence-space/sequence-space-item
 
 
 export const BANNER_BG_IMAGE: SequenceSpaceItem = {
-    id: 3,  
+    id: 2,  
     customClassName: [] as string[],
     component: ImgFlex,
     componentInput: {

@@ -5,6 +5,8 @@ import { TAILWIND_BREAD_CRUMB } from './tailwindCollect/TAILWIND_BREAD_CRUMB';
 import { ContainerBlock } from '@shared/ui/container/container-block.interface';
 import { ContainerComponent } from '@shared/ui/container/container.component';
 import { TextBox } from '@shared/ui/text-box/text-box-item.interface';
+import { SequenceSpaceItem } from '@shared/ui/sequence-space/sequence-space-item';
+import { FlexHeadingItem } from '@shared/ui/flex-heading/flex-heading-item';
 
 
 @Component({
@@ -52,16 +54,31 @@ export class BannerBindRoute implements OnInit, OnDestroy {
         const DYNAMIC_BLOCK: ContainerBlock = {
           ...BLOCK,
           items: BLOCK.items.map(item => {
-            if (item.id === 1) { // BANNER_TITLE
+            if (item.id === 1) { // BANNER_MAIN_CONTAINER
               return {
                 ...item,
                 componentInput: {
-                  TEXT_BOX_LIST: [
-                    {
-                      id: 0,
-                      heading: { id: 0, headingType: 'h2', text: BREADCRUMB.toUpperCase(), },
-                    } as TextBox,
-                  ] as TextBox[],
+                  BLOCK_SEQUENCE_SPACE: {
+                    ...item.componentInput['BLOCK_SEQUENCE_SPACE'],
+                    items: item.componentInput['BLOCK_SEQUENCE_SPACE'].items.map((textItem:  SequenceSpaceItem) => {
+                      
+                      if (textItem.id === 0) {
+                        return {
+                          ...textItem,
+                          componentInput: {
+                            TEXT_BOX_LIST: [
+                              {
+                                id: 0,
+                                heading: { id: 0, headingType: 'h2', text: BREADCRUMB.toUpperCase(), } as FlexHeadingItem,
+                              } as TextBox,
+                            ] as TextBox[],
+                          }
+                        };
+                      } 
+                      
+                      return textItem;
+                    }),
+                  } as ContainerBlock,
                 },
               };
             }

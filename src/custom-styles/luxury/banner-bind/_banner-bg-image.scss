@@ -1,0 +1,21 @@
+@use '../../../styles-collections/breakpoints' as *;
+
+@mixin banner-bg-image-all-features() {
+    position: absolute;
+    bottom: 0;
+    display: none;
+    right: 12%;
+    z-index: 1;
+
+    app-img-flex:has(.ui-image-flex) {
+        .ui-image-flex {
+            img {
+
+            }
+        }
+    }
+
+    @include respond('lg') {
+        display: block;
+    }
+}
