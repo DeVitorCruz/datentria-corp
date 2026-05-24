@@ -3,7 +3,7 @@ import { AnchorFlexItem } from "@shared/ui/anchor-flex/anchor-flex-item.interfac
 export const ID_1_WISHLIST: AnchorFlexItem = {
     id: 1,
     ariaLabel: 'text-lable',
-    rlink: '#',
+    rlink: '/whishlist',
     switchAbleIcon: {
         type: 'none'
     },
