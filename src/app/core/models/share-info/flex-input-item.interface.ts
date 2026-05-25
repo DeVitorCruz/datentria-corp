@@ -6,4 +6,6 @@ export interface FlexInputItem {
     isDisabled: boolean;
     type: 'button' | 'search' | 'submit' | 'text' | 'email';
     matInput?: 'matInput';
+    name?: string;
+    required?: boolean;
 };

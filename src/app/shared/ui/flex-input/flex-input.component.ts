@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { DynamicAttributesDirective } from '../../../core/directives/attributes/dynamic-attributes.directive';
 import { FlexInputItem } from '../../../core/models/share-info/flex-input-item.interface';
@@ -15,5 +15,10 @@ import { NgClass } from '@angular/common';
 })
 export class FlexInputComponent {
   public readonly INPUT_ITEM = input.required<FlexInputItem>();
-  public readonly INPUT = computed(() => { return this.INPUT_ITEM(); });
+  public readonly INPUT = computed(() => this.INPUT_ITEM());
+  public readonly valueChange = output<string>();
+  
+  public onValueChange(value: string): void {
+    this.valueChange.emit(value);
+  }
 }
