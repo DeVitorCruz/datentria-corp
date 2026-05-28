@@ -4,7 +4,7 @@ export interface FlexInputItem {
     customClassName?: string[];
     label?: string;
     isDisabled: boolean;
-    type: 'button' | 'search' | 'submit' | 'text' | 'email';
+    type: 'button' | 'search' | 'submit' | 'text' | 'email' | 'password';
     matInput?: 'matInput';
     name?: string;
     required?: boolean;

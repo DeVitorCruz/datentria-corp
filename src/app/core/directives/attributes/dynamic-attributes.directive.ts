@@ -3,6 +3,9 @@ import { FlexInputItem } from '../../models/share-info/flex-input-item.interface
 
 @Directive({
   selector: '[appDynamicAttributes]',
+  host: {
+    '(input)': 'onInput($event)',
+  }
 })
 export class DynamicAttributesDirective {
   public readonly FLEX_INPUT_ITEM = input.required<FlexInputItem>();
@@ -27,8 +30,7 @@ export class DynamicAttributesDirective {
     if (name) this.renderer.setAttribute(INPUT, 'name', name);
     if (required) this.renderer.setAttribute(INPUT, 'required', '');
   }
-
-  @HostListener('input', ['$event']) 
+ 
   public onInput(event: Event): void {
     const VALUE = (event.target as HTMLInputElement).value;
     this.valueChange.emit(VALUE);

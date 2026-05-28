@@ -3,7 +3,7 @@ import { AnchorFlexItem } from "@shared/ui/anchor-flex/anchor-flex-item.interfac
 export const ID_3_404_ERROR: AnchorFlexItem = {
     id: 3,
     ariaLabel: 'text-lable',
-    rlink: '#',
+    rlink: '/error-404',
     switchAbleIcon: {
         type: 'none'
     },

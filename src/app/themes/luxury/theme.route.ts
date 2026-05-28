@@ -14,4 +14,25 @@ export const JEWELRY_LUXURY_THEME_ROUTE: Routes = [
             }
         ],   
     },
+    {
+        path: 'auth',
+        loadComponent: () => import('./main-build/auth-shell/auth-shell.page')
+            .then(m => m.AuthShellPage),
+        children: [
+            {
+                path: 'login',
+                loadComponent: () => import('./pages/login/login.page')
+                    .then(m => m.LoginPage)
+            },
+            {
+                path: 'register',
+                loadComponent: () => import('./pages/register/register.page')
+                    .then(m => m.RegisterPage)
+            }
+        ]
+    },
+    {
+        path: '**',
+        redirectTo: 'error-404'
+    }
 ];

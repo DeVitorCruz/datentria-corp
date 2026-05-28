@@ -13,7 +13,7 @@ export const FORM_INPUT_ITEM: FlexFormItem = {
                 value: '',
                 placeholder: 'Email here',
                 customClassName: TAILWIND_FLEX_INPUT,
-                isDisabled: true,
+                isDisabled: false,
                 type: 'email',
             }
         } as FlexFormField

@@ -18,15 +18,18 @@ export class FlexFormComponent {
   public readonly FLEX_FORM_ITEM = input.required<FlexFormItem>();
   public readonly FORM = computed(() => this.FLEX_FORM_ITEM());
   public readonly onSubmit = output<void>();
-
+  public readonly formInputValueChange = output<string>();
+ 
   public handleSubmit(): void {
     this.onSubmit.emit();
   }
 
   public handleValueChange(field: any, value: string): void {
+    this.formInputValueChange.emit(value);
     field.inputItem.value = value;
+
     if (field.onValueChange) {
-      field.onValueChange();
+      field.onValueChange(value);
     }
   }
 }

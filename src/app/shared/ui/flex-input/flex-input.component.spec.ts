@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FlexInputComponent } from './flex-input.component';
 
 describe('FlexInput', () => {

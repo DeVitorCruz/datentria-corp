@@ -1,6 +1,8 @@
 import { Routes } from "@angular/router";
 import { Home } from "./home.page";
 
+
+
 export const HOME_ROUTES: Routes = [
     {
         path: '',
@@ -15,5 +17,5 @@ export const HOME_ROUTES: Routes = [
         path: '',
         loadChildren: () => import('../BANNER_BIND_ROUTER')
             .then(m => m.BANNER_BIND_ROUTER),
-    },
+    }
 ];

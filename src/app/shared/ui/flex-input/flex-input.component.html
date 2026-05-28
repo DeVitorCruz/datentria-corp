@@ -22,8 +22,8 @@
             class="ui-input-flex" 
             [ngClass]="INPUT().customClassName" 
             appDynamicAttributes 
-            (valueChange)="onValueChange($event)"
-            [FLEX_INPUT_ITEM]="INPUT()"> 
+            [FLEX_INPUT_ITEM]="INPUT()"
+            (valueChange)="onValueChange($event)"> 
     }
 }
 

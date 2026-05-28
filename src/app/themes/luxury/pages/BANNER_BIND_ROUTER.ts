@@ -94,7 +94,7 @@ export const BANNER_BIND_ROUTER: Routes = [
                 data: MAKE_ROUTE('contact'),
             },
             {
-                path: '**',
+                path: 'error-404',
                 component: Error404Page,
                 data: MAKE_ROUTE('404'),
             },

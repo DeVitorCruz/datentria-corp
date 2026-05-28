@@ -16,9 +16,9 @@ import { NgClass } from '@angular/common';
 export class FlexInputComponent {
   public readonly INPUT_ITEM = input.required<FlexInputItem>();
   public readonly INPUT = computed(() => this.INPUT_ITEM());
-  public readonly valueChange = output<string>();
+  public readonly flexInputValueChange = output<string>();
   
   public onValueChange(value: string): void {
-    this.valueChange.emit(value);
+    this.flexInputValueChange.emit(value);
   }
 }

@@ -7,7 +7,7 @@
         <div [class]="'ui-flex-form__field' + (field.customFieldClassName? ' ' + field.customFieldClassName : '')">
             <app-flex-input
                 [INPUT_ITEM]="field.inputItem!"
-                (valueChange)="handleValueChange(field, $event)">
+                (flexInputValueChange)="handleValueChange(field, $event)">
             </app-flex-input>
         </div>    
     }
