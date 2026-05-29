@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, OnInit, Signal, signal } from "@angular/core";
+import { Component, computed, effect, inject, Renderer2, Signal } from "@angular/core";
 import { Router, RouterOutlet, NavigationEnd } from "@angular/router";
 import { ContainerComponent } from "@shared/ui/container/container.component";
 import { LEFT_CONTENT } from "./left-content/LEFT_CONTENT";
@@ -32,9 +32,8 @@ import { filter, map, startWith } from "rxjs";
     public readonly TOGGLE_LABE: Signal<string> = computed(() => this.IS_LOGIN() ? 'Create Account' : 'Log In');
     public readonly TOGGLE_ROUTE: Signal<string> = computed(() => this.IS_LOGIN() ? '/auth/register' : '/auth/login');
     public readonly TOGGEL_ARIA_LABEL: Signal<string> = computed(() => this.IS_LOGIN() ? 'Register' : 'Log In');
-
     
-    constructor() {
+    constructor(private renderer: Renderer2) {
         effect(() => {
             this.anchorFlexItem = this._LEFT_CONTENT.items[0].componentInput['BLOCK_SEQUENCE_SPACE'].items[1].componentInput['ANCHOR_FLEX_ITEM'];
             if(!this.anchorFlexItem) return;

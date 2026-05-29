@@ -12,7 +12,7 @@ export const LEFT_HEADER: SequenceSpaceItem = {
         BLOCK_SEQUENCE_SPACE: {
             id: 0,
             customBlockClassName: 'left-header-block',
-            customElementClassName: 'left-haeder-element',
+            customElementClassName: 'left-header-element',
             customClassName: [] as string[],
             items: [
                 HEADER_LOGO,

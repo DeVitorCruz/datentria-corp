@@ -6,4 +6,4 @@ export interface AuthFormContent {
     headerContent: ContainerBlock;
     formContent: FlexFormItem;
     footerContent?: TextBox[];
-}
+};

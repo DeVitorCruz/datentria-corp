@@ -4,6 +4,7 @@
 @use './about/about' as *;
 @use './page-banner' as *;
 @use './banner-bind/banner-bind' as *;
+@use './auth-shell/auth-shell' as *;
 
 @mixin all-page-collected() {
     @include home-all-features();
@@ -12,4 +13,5 @@
     @include page-banner-all-features();
     @include about-all-features();
     @include banner-bind-all-features();
+    @include auth-sell-all-features();
 }

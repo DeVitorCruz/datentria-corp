@@ -1,0 +1,21 @@
+@use '../../../styles-collections/breakpoints' as *; 
+
+@mixin auth-shell-right-all-features() {
+    width: 100%;
+    padding: 70px 35px;
+    min-height: 600px;
+    
+    app-register-page:has(.auth-form__container) {
+        app-auth-form:has(.auth-form__container) {
+            .auth-form__container {
+                .auth-form__card {
+
+                }
+            }
+        }   
+    }
+
+    @include respond('lg') {
+        width: 50%;
+    }
+}

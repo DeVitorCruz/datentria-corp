@@ -7,8 +7,8 @@ import { LEFT_FOOTER } from "./LEFT_FOOTER";
 
 export const LEFT_CONTENT: ContainerBlock =  {
     id: 0,
-    customBlockClassName: 'lef-content-block',
-    customElementClassName: 'lef-content-element',
+    customBlockClassName: 'left-content-block',
+    customElementClassName: 'left-content-element',
     customClassName: [] as string[],
     items: [
         LEFT_HEADER,

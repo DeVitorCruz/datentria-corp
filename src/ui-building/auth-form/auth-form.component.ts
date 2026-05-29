@@ -1,7 +1,6 @@
 import { Component, input, output } from "@angular/core";
 import { AuthFormContent } from "./auth-form.interface";
 import { FlexFormComponent } from "@shared/ui/flex-form/flex-form.component";
-import { RouterLink } from "@angular/router";
 import { ContainerComponent } from "@shared/ui/container/container.component";
 import { TextBoxComponent } from "@shared/ui/text-box/text-box.component";
 
