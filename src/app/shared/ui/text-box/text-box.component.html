@@ -5,12 +5,17 @@
             <app-flex-heading [FLEX_HEADING]="item.heading"></app-flex-heading>
         }
 
+        @if (item.list) {
+            <app-custom-list
+            [ITEMS_LIST]="item.list"></app-custom-list>
+        }
+        
         @if (item.text) {
             @for (list_item of item.text; track list_item) {
                 <p class="ui-text">{{ list_item }}</p>
             }
         }
-
+        
         @if (item.buttonSection) {
             <div class="button-list-block">
                 @for (item of item.buttonSection; track item.id) {
