@@ -3,11 +3,13 @@ import { ButtonFlex } from '../button/button.component';
 import { FlexInputComponent } from '../flex-input/flex-input.component';
 import { FlexFormItem } from './flex-form-item.interface';
 import { NgClass } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-flex-form',
   imports: [
+    FormsModule,
     ButtonFlex,
     FlexInputComponent,
     NgClass

@@ -24,6 +24,8 @@ const angularApp = new AngularNodeAppEngine();
  * ```
  */
 
+// Proxy /api/* to Laravel BEFORE Angular catches everything
+
 /**
  * Serve static files from /browser
  */

@@ -10,6 +10,6 @@ export const AUTH_GUARD: CanActivateFn = () => {
         return true;
     }
 
-    ROUTER.navigate(['/login']);
+    ROUTER.navigate(['/auth/login']);
     return false;
 };
