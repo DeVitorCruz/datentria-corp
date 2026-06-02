@@ -6,6 +6,8 @@ export const AUTH_INTERCEPTOR: HttpInterceptorFn = (req, next) => {
     const AUTH = inject(AuthService);
     const TOKEN = AUTH.getToken();
 
+    console.log('[AUTH_INTERCEPTOR] token:', TOKEN);
+
     const HEADERS: Record<string, string> = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

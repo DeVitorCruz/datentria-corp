@@ -50,9 +50,9 @@ import { AuthResponse, LoginRequest, RegisterRequest } from "@core/models/auth/a
     }
 
     private _setSession(response: AuthResponse): void {
-        this.TOKEN.set(response.token);
+        this.TOKEN.set(response.access_token);
         this.USER.set(response.user);
-        this.storage.setItem(this.TOKEN_KEY, response.token);
+        this.storage.setItem(this.TOKEN_KEY, response.access_token);
         this.storage.setItem(this.USER_KEY, JSON.stringify(response.user));
     }
 

@@ -13,7 +13,7 @@ export interface RegisterRequest {
 };
 
 export interface AuthResponse {
-    token: string;
+    access_token: string;
     user: User;
 };
 

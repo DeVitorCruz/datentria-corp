@@ -18,6 +18,6 @@ export const appConfig: ApplicationConfig = {
       provide: THEME_CONFIG, 
       useValue: JEWELRY_LUXURY_THEME_CONFIG 
     },
-    provideHttpClient(withFetch(), withInterceptors([AUTH_INTERCEPTOR])),
+    provideHttpClient(withInterceptors([AUTH_INTERCEPTOR])),
   ]
 };
