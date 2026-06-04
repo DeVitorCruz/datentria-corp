@@ -21,3 +21,4 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([AUTH_INTERCEPTOR])),
   ]
 };
+  
