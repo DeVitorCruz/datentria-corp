@@ -8,7 +8,7 @@ export interface CardItem {
     content: TextBox[];
     customClassName?: string[];
     link?: string;
-}
+};
 
 export interface CardGridContent {
     header: TextBox[];
@@ -16,4 +16,4 @@ export interface CardGridContent {
     gridClassName?: string;
     sectionClassName?: string;
     decoration?: SequenceSpaceItem[];
-}
+};

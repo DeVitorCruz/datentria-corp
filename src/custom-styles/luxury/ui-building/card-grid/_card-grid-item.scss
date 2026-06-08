@@ -21,6 +21,14 @@
                     }
                 }
             }
+
+            app-img-flex:has(.ui-image-flex) {
+                .ui-image-flex {
+                    img {
+                        @include dimension($width: 100%, $height: auto);
+                    }
+                }
+            }
         }
 
         .card-grid__content {
@@ -38,8 +46,8 @@
                 border-top-left-radius: 4px;
             }
 
-            app-text-box:has(.text-box-block-0) {
-                .text-box-block-0 {
+            app-text-box:has(.text-box-block-0, .text-box-block__team-member-content-0) {
+                .text-box-block-0, .text-box-block__team-member-content-0 {
                     .ui-flex-heading, .ui-text {
                         text-align: left;
                     }
