@@ -11,8 +11,8 @@ export class ProductService extends ApiService {
         super(http);
     }
 
-    public getAll(): Observable<PaginatedResponse<Product>> {
-        return this.get<PaginatedResponse<Product>>('products');
+    public getAll(page: number = 1): Observable<PaginatedResponse<Product>> {
+        return this.get<PaginatedResponse<Product>>('products', { page });
     }
 
     public getById(id: number): Observable<Product> {

@@ -5,6 +5,9 @@
 @use './page-banner' as *;
 @use './banner-bind/banner-bind' as *;
 @use './auth-shell/auth-shell' as *;
+@use './ui-building/faq-accordion/faq-accordion' as *;
+@use './ui-building/faq-contact/faq-contact' as *;
+@use './shop/shop' as *;
 
 @mixin all-page-collected() {
     @include home-all-features();
@@ -14,4 +17,7 @@
     @include about-all-features();
     @include banner-bind-all-features();
     @include auth-sell-all-features();
+    @include faq-accordion-all-features();
+    @include faq-contact-all-features();
+    @include shop-all-features();
 }

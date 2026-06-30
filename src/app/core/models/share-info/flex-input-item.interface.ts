@@ -5,6 +5,7 @@ export interface FlexInputItem {
     label?: string;
     isDisabled: boolean;
     type: 'button' | 'search' | 'submit' | 'text' | 'email' | 'password';
+    tagType?: 'input' | 'textarea';
     matInput?: 'matInput';
     name?: string;
     required?: boolean;

@@ -5,6 +5,7 @@ export interface ButtonItem {
     id: number;
     title?: string;
     type: 'button' | 'reset' | 'submit';
+    isDisabled?: boolean;
     customClassName?: string[];
     iconType: IconSwitch;
     matButton?: 'elevated' | 'outlined';

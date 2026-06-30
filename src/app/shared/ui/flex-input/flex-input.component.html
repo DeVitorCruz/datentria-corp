@@ -18,12 +18,25 @@
         @if (INPUT().label) {
             <label>{{ INPUT().label }}</label>
         }
-        <input 
-            class="ui-input-flex" 
-            [ngClass]="INPUT().customClassName" 
-            appDynamicAttributes 
-            [FLEX_INPUT_ITEM]="INPUT()"
-            (valueChange)="onValueChange($event)"> 
+
+        @if (INPUT().tagType === 'textarea') {
+            <textarea 
+                class="ui-input-flex"
+                [ngClass]="INPUT().customClassName"
+                [name]="INPUT().name?? ''" 
+                [disabled]="INPUT().isDisabled"
+                [placeholder]="INPUT().placeholder"
+                [required]="INPUT().required ?? false"
+                (input)="onValueChange($any($event.target).value)">{{ VALUE() }}</textarea>
+        } @else {
+            <input 
+                class="ui-input-flex" 
+                [ngClass]="INPUT().customClassName" 
+                appDynamicAttributes 
+                [FLEX_INPUT_ITEM]="INPUT()"
+                (valueChange)="onValueChange($event)"> 
+
+        }
     }
 }
 

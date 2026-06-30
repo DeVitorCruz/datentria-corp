@@ -14,6 +14,31 @@ export const serverRoutes: ServerRoute[] = [
 	  path: 'blog/:id',
 	  renderMode: RenderMode.Server
   },
+  // Static-shell pages that fetch live data - render per-request, not at buid time
+  {
+    path: 'team',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'faq',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'contact',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'auth',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'auth/login',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'auth/register',
+    renderMode: RenderMode.Server,
+  },
   // All static routes - prerendered at build time
   {
     path: '**',
