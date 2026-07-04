@@ -7,4 +7,5 @@ export interface SlidItem {
     swiperSlideList: SlideSwiperScreen[];
     slideConfig?: SwiperOptions;
     containerClassName: string;
+    thumbs?: SlidItem; 
 };

@@ -32,3 +32,18 @@
     <!-- If we need scrollbar -->
     <div class="swiper-scrollbar"></div>
 </div>
+
+<!-- Thumbs swiper - rendered inside same component, initialized first -->
+@if (SLIDE().thumbs) {
+    <div [class]="'swiper' + ' ' + SLIDE().thumbs!.containerClassName">
+        <div class="swiper-wrapper">
+            @for (screen of SLIDE().thumbs!.swiperSlideList; track screen) {
+                <div class="swiper-slide">
+                    <ng-container
+                        *ngComponentOutlet="screen.swiperComponent; inputs: screen.swiperInput">
+                    </ng-container>
+                </div>
+            }
+        </div>
+    </div>
+}
