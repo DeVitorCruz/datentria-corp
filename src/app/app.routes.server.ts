@@ -16,6 +16,10 @@ export const serverRoutes: ServerRoute[] = [
   },
   // Static-shell pages that fetch live data - render per-request, not at buid time
   {
+    path: 'shop',
+    renderMode: RenderMode.Server,
+  },
+  {
     path: 'team',
     renderMode: RenderMode.Server,
   },

@@ -21,6 +21,7 @@ export interface Product {
     slug: string;
     description?: string;
     image?: string;
+    images?: string[];
     is_active: boolean;
     category_id: number;
     category?: string; // <- category name
