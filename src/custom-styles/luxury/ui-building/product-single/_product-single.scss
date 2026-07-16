@@ -3,6 +3,7 @@
 @use './product-proprieties' as *;
 @use './product-actions' as *;
 @use './product-tab-panel' as *;
+@use './product-gallery-btn' as *;
 
 @mixin product-single-all-features() {
     .product-single {
@@ -56,11 +57,13 @@
                 }
 
                 .swiper-button-prev,
-                .swiper-button-next {
-                    color: var.$tertiary-color;
-
-                    &::after { font-size: 1rem; }
+                .swiper-button-next {   
+                    &::after { display: none; }
                 }
+            }
+
+            .btn-block {
+                @include product-gallery-btn-all-features();
             }
 
             .product-single-thumb-swiper {
