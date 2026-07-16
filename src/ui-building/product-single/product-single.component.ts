@@ -11,6 +11,8 @@ import { MediaImg } from '@core/models/media/media-img.interface';
 import { ImgFlex } from '@shared/ui/img-flex/img-flex.component';
 import { SlideComponent } from '@shared/ui/side-slide/slide.component';
 import { TabPanelComponent } from '@ui-building/tab-panel/tab-panel.component';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+
 
 @Component({
   selector: 'app-product-single',
@@ -56,8 +58,14 @@ export class ProductSingleComponent {
     ] as SlideSwiperScreen[],
     // <- thumbs linked swiper
     slideConfig: {
+      // <- modules activated here at product-single level
+      modules: [Navigation, Thumbs],
       loop: true,
       spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     } as SwiperOptions,
     containerClassName: 'product-single-main-swiper' as string,
     // <- thumbs linked swiper
@@ -70,9 +78,11 @@ export class ProductSingleComponent {
           )
       ] as SlideSwiperScreen[],
       slideConfig: {
+        modules: [FreeMode, Thumbs],
         slidesPerView: 4,
         spaceBetween: 10,
         freeMode: true, 
+        watchSlidesProgress: true,
       } as SwiperOptions,
       containerClassName: 'product-single-thumb-swiper' as string,
     } as SlidItem,

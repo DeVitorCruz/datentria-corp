@@ -42,7 +42,7 @@
         }
 
         @include respond('md') {
-            max-width: 90px 0;
+            padding: 90px 0;
         }
         
         @include respond('lg') {

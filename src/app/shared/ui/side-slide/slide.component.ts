@@ -3,7 +3,7 @@ import { isPlatformBrowser, NgComponentOutlet } from '@angular/common';
 import { AfterViewInit, Component, computed, Inject, 
   input, InputSignal, PLATFORM_ID, Signal, 
   signal, WritableSignal, output, OutputEmitterRef, ElementRef, 
-  inject} from '@angular/core';
+  inject } from '@angular/core';
 import { SlidItem } from './slide-item.interface';
 import { ButtonFlex } from '../button/button.component';
 import { SwiperOptions } from 'swiper/types';
@@ -28,7 +28,7 @@ export class SlideComponent implements AfterViewInit {
   public readonly swiperReady: OutputEmitterRef<Swiper> = output<Swiper>();
 
   private readonly EL: ElementRef = inject(ElementRef);
-
+  
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
   ) {
@@ -45,15 +45,14 @@ export class SlideComponent implements AfterViewInit {
     let options: SwiperOptions = this.SLIDE().slideConfig ?? {} as SwiperOptions;
 
     if (this.SLIDE().thumbs) {
-      const THUMB_EL: any = this.EL.nativeElement.querySelector(`${this.SLIDE().thumbs!.containerClassName}`);
+      const THUMB_IMG: string = `.${this.SLIDE().thumbs!.containerClassName}`;
+      const THUMB_EL: any = this.EL.nativeElement.querySelector(THUMB_IMG);
 
-      if(THUMB_EL) {
+      if (THUMB_EL) {
         this.thumbSwiper = new Swiper(THUMB_EL, {
           ...this.SLIDE().thumbs!.slideConfig,
-          watchSlidesProgress: true,
         });
-
-        options = { ...options, thumbs: { swiper: this.thumbSwiper } } as SwiperOptions;
+        options = { ...options, thumbs: { swiper: this.thumbSwiper }, } as SwiperOptions;
       }
     }
 
@@ -62,7 +61,7 @@ export class SlideComponent implements AfterViewInit {
     const MAIN_EL: any = this.EL.nativeElement.querySelector(CONTAINER);
 
     if(MAIN_EL) {
-      this.swiper = new Swiper(CONTAINER, options);
+      this.swiper = new Swiper(MAIN_EL, options);
       this.swiperReady.emit(this.swiper);
     }
   }

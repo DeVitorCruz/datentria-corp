@@ -18,7 +18,7 @@
                         </div>
                         <div class="review-panel__stars">
                             @for (star of [1, 2, 3, 4, 5]; track star) {
-                                <span [ngClass]="{ 'is-active': star <= review.rating  }">*</span>
+                                <span [ngClass]="{ 'is-active': star <= review.rating  }">★</span>
                             }
                         </div>
                         <p class="review-panel__comment">{{ review.comment }}</p>
@@ -41,8 +41,8 @@
                         type="button"
                         class="review-panel__star-btn"
                         [ngClass]="{ 'is-active': isStarActive(star) }"
-                        click="setRating(star)">
-                        *
+                        (click)="setRating(star)">
+                        ★
                     </button>
                 }
            </div>

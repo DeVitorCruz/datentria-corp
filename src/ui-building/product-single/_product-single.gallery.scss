@@ -1,6 +1,7 @@
 @use '../../styles-collections/breakpoints' as *;
 
 @mixin product-single-gallery-all-features() {
+    flex: 0 0 auto;
     width: 100%;   
 
     // Main swiper image
@@ -26,9 +27,12 @@
         }
     }
     
-    @include respond('lg') { flex: 0 0 50% }
-
     .product-single-thumb-swiper .ui-image-flex img {
         opacity: 1;
+    }
+    
+    @include respond('lg') { 
+        flex: 0 0 auto;
+        width: 50%; 
     }
 }

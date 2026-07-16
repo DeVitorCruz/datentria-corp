@@ -39,9 +39,9 @@ export const REVIEW_FORM: FlexFormItem = {
     ] as FlexFormField[],
     submitButton: {
         id: 0 as number,
-        title: '' as string,
+        title: 'Post Review' as string,
         type: 'submit',
-        customClassName: [] as string[],
+        customClassName: ['review-submit'] as string[],
         iconType: { type: 'none' } as IconSwitch,
     } as ButtonItem, 
     customClassName: ['review-form'] as string[],
