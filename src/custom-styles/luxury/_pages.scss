@@ -11,6 +11,7 @@
 @use './ui-building/product-single/product-single' as *;
 @use './ui-building/tab-panel/tab-panel' as *;
 @use './ui-building/review-card/review-card'  as *;
+@use './ui-building/team-single/team-single' as *;
 
 @mixin all-page-collected() {
     @include home-all-features();
@@ -26,4 +27,5 @@
     @include product-single-all-features();
     @include tab-panel-all-features();
     @include review-card-all-features();
+    @include team-single-all-features();
 }
