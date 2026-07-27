@@ -1,1 +1,8 @@
-<p>wishlist works!</p>
+@if (LOADING()) {
+    <div class="wishlist-loading">Loading...</div>
+}
+
+@if (PRODUCT_LIST_CONTENT) {
+    <app-product-list
+        [CONTENT]="PRODUCT_LIST_CONTENT"></app-product-list>    
+}

@@ -43,6 +43,18 @@ export const serverRoutes: ServerRoute[] = [
     path: 'auth/register',
     renderMode: RenderMode.Server,
   },
+  {
+    path: 'cart',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'whishlist',
+    renderMode: RenderMode.Server,
+  },
+  {
+    path: 'order',
+    renderMode: RenderMode.Server,
+  },
   // All static routes - prerendered at build time
   {
     path: '**',
