@@ -14,6 +14,8 @@
 @use './ui-building/team-single/team-single' as *;
 @use './ui-building/product-list/product-list' as *;
 @use './error-404/error-404' as *;
+@use './ui-building/contact/contact' as *;
+
 
 @mixin all-page-collected() {
     @include home-all-features();
@@ -32,4 +34,5 @@
     @include team-single-all-features();
     @include product-list-all-features();
     @include error-404-all-features();
+    @include contact-all-features();
 }
