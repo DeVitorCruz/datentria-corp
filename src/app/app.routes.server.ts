@@ -55,6 +55,10 @@ export const serverRoutes: ServerRoute[] = [
     path: 'order',
     renderMode: RenderMode.Server,
   },
+  {
+    path: 'checkout',
+    renderMode: RenderMode.Server,
+  },
   // All static routes - prerendered at build time
   {
     path: '**',

@@ -15,6 +15,7 @@
 @use './ui-building/product-list/product-list' as *;
 @use './error-404/error-404' as *;
 @use './ui-building/contact/contact' as *;
+@use './ui-building/checkout/checkout' as *;
 
 
 @mixin all-page-collected() {
@@ -35,4 +36,5 @@
     @include product-list-all-features();
     @include error-404-all-features();
     @include contact-all-features();
+    @include checkout-all-features();
 }
