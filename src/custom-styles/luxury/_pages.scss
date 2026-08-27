@@ -16,7 +16,8 @@
 @use './error-404/error-404' as *;
 @use './ui-building/contact/contact' as *;
 @use './ui-building/checkout/checkout' as *;
-
+@use './blog/blog' as *;
+@use './ui-building/article/article' as *;
 
 @mixin all-page-collected() {
     @include home-all-features();
@@ -37,4 +38,6 @@
     @include error-404-all-features();
     @include contact-all-features();
     @include checkout-all-features();
+    @include blog-all-features();
+    @include article-all-features();
 }

@@ -1,1 +1,9 @@
-<p>blog-single works!</p>
+@if (LOADING()) {
+    <div class="blog-single-loading">Loading...</div>
+}
+
+<!-- Example content - swap to ARTICLE_CONTENT() when API ready -->
+ <app-article-outlet
+    [CONTENT]="EXAMPLE_CONTENT"
+    template="default">
+</app-article-outlet>

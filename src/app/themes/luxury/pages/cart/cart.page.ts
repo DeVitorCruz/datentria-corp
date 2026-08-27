@@ -22,8 +22,6 @@ export class CartPage implements OnInit {
   public readonly LIST_CONTENT: WritableSignal<ProdructListContent | null> = signal<ProdructListContent | null>(null);
   public readonly TOTAL: WritableSignal<number> = signal<number>(0);
 
-
-
   public ngOnInit(): void {
     // this.setCartService();
     this.LIST_CONTENT.set(CART_EXAMPLE);
