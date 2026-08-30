@@ -9,7 +9,6 @@
 	app-page-banner:has(.page-title-banner) {
 			
 		// CSS variables consumed by the generic component
-		
 		--page-title-bg: #{var.$fourth-color};
 		--page-title-bg-opacity: .15;
 		--page-title-height: 220px;

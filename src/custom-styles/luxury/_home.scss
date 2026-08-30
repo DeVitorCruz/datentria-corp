@@ -51,11 +51,8 @@
                     }
         
                     @include card-track-all-features();
-        
                     @include detached-element-all-features();
-        
                     @include text-image-all-features();
-        
                     @include collection-info-all-features();
                 }
         

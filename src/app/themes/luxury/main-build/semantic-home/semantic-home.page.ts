@@ -50,7 +50,7 @@ export class SemanticHome implements AfterViewInit {
   public readonly CURRENT_PAGE = computed<SemanticFeatures>(() => {
 	 const PAGES = this.PAGES();
 	 const KEY = this.ACTIVE_PAGE(); 
-	 return PAGES[KEY] ?? PAGES['home'];
+	 return PAGES[KEY] ?? PAGES['home'] ?? {};
   });
   
   public readonly EXTRACTED_PAGES = computed(() => { return this.PAGES(); });
@@ -76,12 +76,14 @@ export class SemanticHome implements AfterViewInit {
   constructor(
 	private theme: ThemeService,
 	private router: Router) {
-    this.PAGES.set(this.theme.getContent('pages'));
+    const CONTENT = this.theme.getContent('pages');
+    this.PAGES.set(CONTENT ?? {});
   }
 
   public ngAfterViewInit(): void {
     this.setRightSideNav();
     this.setLeftSideNav();
+    this._trackActiveRoute();
   }
 
   public setRightSideNav(): void {
@@ -98,18 +100,20 @@ export class SemanticHome implements AfterViewInit {
    * */
   private _trackActiveRoute(): void {
     const EXTRACT_KEY = (url: string): string => {
-		const SEGMENTS = url.split('/').filter(Boolean);
-		return SEGMENTS[SEGMENTS.length - 1] || 'none';
+      const SEGMENTS = url.split('/').filter(Boolean);
+      return SEGMENTS[SEGMENTS.length - 1] || 'none';
     };
     
     // Set initial page from current URL
-    this.ACTIVE_PAGE.set(EXTRACT_KEY(this.router.url));
-    
+    // this.ACTIVE_PAGE.set(EXTRACT_KEY(this.router.url));
+        
     // Update on every navigation
     this.router.events.pipe(
-		filter(e => e instanceof NavigationEnd)
+      filter(e => e instanceof NavigationEnd)
     ).subscribe((e: any) => {
-		this.ACTIVE_PAGE.set(EXTRACT_KEY(e.urlAfterRedirects));
-	});
+      // this.ACTIVE_PAGE.set(EXTRACT_KEY(e.urlAfterRedirects));
+      this._MAT_SIDE_LEFT_NAV_SERVICE.closeLeftSidebar();
+      this._MAT_SIDE_RIGHT_NAV_SERVICE.closeRightSidebar();
+	  });
   }
 }
