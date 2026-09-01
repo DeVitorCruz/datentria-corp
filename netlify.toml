@@ -2,6 +2,14 @@
     command = "ng build --configuration=netlify"
     publish = "dist/datentria/browser"
 
+[build.environment]
+    NODE_VERSION = "20"
+    DISABLE_NETLIFY_ANGULAR_RUNTIME = "true"
+
+[[plugins]]
+    # explicity disable the Angular runtime plugin
+    package = "@netlify/plugin-skip-default"
+
 [[redirects]]
     from = "/*"
     to = "/index.html"
