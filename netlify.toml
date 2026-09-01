@@ -1,5 +1,5 @@
 [build]
-    command = "ng build --configuration=netlify"
+    command = "ng build --configuration=production"
     publish = "dist/datentria/browser"
 
 [build.environment]
