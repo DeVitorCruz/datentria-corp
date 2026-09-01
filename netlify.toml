@@ -4,11 +4,7 @@
 
 [build.environment]
     NODE_VERSION = "20"
-    DISABLE_NETLIFY_ANGULAR_RUNTIME = "true"
-
-[[plugins]]
-    # explicity disable the Angular runtime plugin
-    package = "@netlify/plugin-skip-default"
+    NETLIFY_SKIP_ANGULAR_RUNTIME = "true"
 
 [[redirects]]
     from = "/*"
