@@ -4,7 +4,15 @@
 
 [build.environment]
     NODE_VERSION = "20"
-    NETLIFY_SKIP_ANGULAR_RUNTIME = "true"
+
+[build.processing]
+    skip_processing = false
+
+[[plugins]]
+    package = "@netlify/angular-runtime"
+
+    [plugins.inputs]
+        standalone = true
 
 [[redirects]]
     from = "/*"
