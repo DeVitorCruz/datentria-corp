@@ -3,16 +3,10 @@
     publish = "dist/datentria/browser"
 
 [build.environment]
-    NODE_VERSION = "20"
-
-[build.processing]
-    skip_processing = false
+    NODE_VERSION = "22"
 
 [[plugins]]
     package = "@netlify/angular-runtime"
-
-    [plugins.inputs]
-        standalone = true
 
 [[redirects]]
     from = "/*"
