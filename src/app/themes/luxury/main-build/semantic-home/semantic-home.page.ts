@@ -50,7 +50,7 @@ export class SemanticHome implements AfterViewInit {
   public readonly CURRENT_PAGE = computed<SemanticFeatures>(() => {
 	 const PAGES = this.PAGES();
 	 const KEY = this.ACTIVE_PAGE(); 
-	 return PAGES[KEY] ?? PAGES['home'] ?? {};
+	 return PAGES?.[KEY] ?? PAGES?.['home'] ?? {};
   });
   
   public readonly EXTRACTED_PAGES = computed(() => { return this.PAGES(); });

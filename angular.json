@@ -72,6 +72,16 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "netlify": {
+              "outputMode": "static",
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace":"src/app/app.routes.server.ts",
+                  "with":"src/app/app.routes.server.natlify.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
