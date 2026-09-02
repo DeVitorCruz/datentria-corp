@@ -14,6 +14,7 @@ export const serverRoutes: ServerRoute[] = [
 	  path: 'blog/:id',
 	  renderMode: RenderMode.Server
   },
+  
   // Static-shell pages that fetch live data - render per-request, not at buid time
   {
     path: 'shop',
@@ -59,11 +60,6 @@ export const serverRoutes: ServerRoute[] = [
     path: 'checkout',
     renderMode: RenderMode.Server,
   },
-  // All static routes - prerendered at build time
-
-  // <- root route explicitly set to Client to avoid empty prerender
-  { path: '', renderMode: RenderMode.Client },
-  { path: 'home', renderMode: RenderMode.Client },
 
   // All remaining static routes - prerendered at build time
   {
